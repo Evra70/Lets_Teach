@@ -11,6 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/login',  'LoginController@index')->middleware('guest');
+
+Route::post('/proses_login', 'LoginController@masuk');
+Route::get('/proses_logout', 'LoginController@keluar');
+
+Route::get('/administrator', "HomeController@home")->middleware('auth:administrator');
+Route::get('/teacher', "HomeController@home")->middleware('auth:teacher');
+Route::get('/student', "HomeController@home")->middleware('auth:student');
+
+Route::get('/', 'HomeController@index')->middleware('guest');
+
