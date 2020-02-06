@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class HomeController extends Controller
+class MenuController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -30,5 +30,20 @@ class HomeController extends Controller
     public function home()
     {
         return view('home');
+    }
+
+    public function kursus()
+    {
+        return view('kursus');
+    }
+
+    public function kontak()
+    {
+        return view('kontak');
+    }
+
+    public function tentangKami()
+    {
+        return view('tentang_kami');
     }
 }

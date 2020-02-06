@@ -1,6 +1,6 @@
 @extends('master.home_master')
 
-@section('web-title','tentang_kami')
+@section('web-title','Tentang Kami')
 
 @section('content')
 
@@ -34,7 +34,7 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
         <![endif]-->
 
-  
+
 
         <!-- bradcam_area_start -->
         <div class="bradcam_area breadcam_bg overlay2">

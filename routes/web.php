@@ -17,28 +17,19 @@ Route::get('/login',  'LoginController@index')->middleware('guest');
 Route::post('/proses_login', 'LoginController@masuk');
 Route::get('/proses_logout', 'LoginController@keluar');
 
-Route::get('/administrator', "HomeController@home")->middleware('auth:administrator');
-Route::get('/teacher', "HomeController@home")->middleware('auth:teacher');
-Route::get('/student', "HomeController@home")->middleware('auth:student');
+Route::get('/administrator', "MenuController@home")->middleware('auth:administrator');
+Route::get('/teacher', "MenuController@home")->middleware('auth:teacher');
+Route::get('/student', "MenuController@home")->middleware('auth:student');
 
-Route::get('/', 'HomeController@index')->middleware('guest');
+Route::get('/', 'MenuController@index')->middleware('guest');
 
-Route::group('/menu', function(){
+//Route::group('', function(){
+    Route::get('/menu/kategoriList','KategoriController@kategoriList');
 
-    Route::get('/kategoriList','KategoriController@kategoriList');
+//});
 
-});
-
-Route::get('/kursus', function () {
-    return view('kursus');
-})->middleware('guest');
-
-Route::get('/kontak', function () {
-    return view('contact');
-})->middleware('guest');
-
-Route::get('/tentang_kami', function () {
-    return view('tentang_kami');
-})->middleware('guest');
+Route::get('/menu/kursus', 'MenuController@kursus')->middleware('guest');
+Route::get('/menu/kontak', 'MenuController@kontak')->middleware('guest');
+Route::get('/menu/tentang_kami', 'MenuController@tentangKami')->middleware('guest');
 
 
