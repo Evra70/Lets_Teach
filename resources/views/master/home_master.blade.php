@@ -49,12 +49,12 @@
                             <div class="main-menu  d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a  href="/">home</a></li>
+                                        <li><a  href="/">Home</a></li>
                                         <li><a href="/kursus">Kursus</a></li>
-                                        
-                                        <li><a href="/tentang_kami">About</a></li>
-                                        
-                                        <li><a href="/kontak">Contact</a></li>
+
+                                        <li><a href="/tentang_kami">Tentang Kami</a></li>
+
+                                        <li><a href="/kontak">Kontak</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -65,7 +65,7 @@
                                     <i class="flaticon-user"></i>
                                     <span>log in</span>
                                 </a>
-                                
+
                             </div>
                         </div>
                         <div class="col-12">
