@@ -6,7 +6,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use Alert;
+use Illuminate\Support\Facades\Log;
 use UxWeb\SweetAlert\SweetAlert;
 
 class LoginController extends Controller
@@ -17,7 +17,7 @@ class LoginController extends Controller
     }
     public function masuk(Request $request){
         $this->validate($request,[
-            'auth' => 'required|min:5',
+            'auth' => 'required',
             'password' => 'required'
         ]);
         $auth =$request->auth;
@@ -26,8 +26,10 @@ class LoginController extends Controller
 //            ->where('password',$password)->first();
 
         $user =  DB::select("SELECT * FROM t_user WHERE (email='$auth' OR username='$auth') AND password='$password'");
-        $user = (object) $user[0];
-        if(isset($user)){
+
+        if(count($user) > 0){
+            $user =  (object) $user[0];
+
             $level=$user->level;
             Auth::guard("$level")->LoginUsingId($user->user_id);
             return redirect("/$level");

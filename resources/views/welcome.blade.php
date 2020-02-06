@@ -24,9 +24,9 @@
     <link rel="stylesheet" href="/asset/css/animate.css">
     <link rel="stylesheet" href="/asset/css/slicknav.css">
     <link rel="stylesheet" href="/asset/css/style.css">
+    <link rel="stylesheet" href="/asset_sweet_alert/sweetalert.css">
     <!-- <link rel="stylesheet" href="/asset/css/responsive.css"> -->
 </head>
-
 <body>
     <!--[if lte IE 9]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
@@ -2092,14 +2092,15 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="/asset/js/jquery.magnific-popup.min.js"></script>
     <script src="/asset/js/plugins.js"></script>
     <script src="/asset/js/gijgo.min.js"></script>
+    <script src="/asset_sweet_alert/sweetalert.min.js"></script>
 
+    @include('sweet::alert')
     <!--contact js-->
     <script src="/asset/js/contact.js"></script>
     <script src="/asset/js/jquery.ajaxchimp.min.js"></script>
     <script src="/asset/js/jquery.form.js"></script>
     <script src="/asset/js/jquery.validate.min.js"></script>
     <script src="/asset/js/mail-script.js"></script>
-
     <script src="/asset/js/main.js"></script>
 </body>
 
