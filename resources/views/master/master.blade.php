@@ -112,7 +112,7 @@
             @if(Auth::guard('administrator')->check())
                 <hr class="my-3">
                 <!-- Heading -->
-                <h6 class="navbar-heading text-muted">Data User & Suplier</h6>
+                <h6 class="navbar-heading text-muted">Data User</h6>
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" href="/menu/userList">
@@ -135,83 +135,103 @@
                         </a>
                     </li>
                 </ul>
+                <hr class="my-3">
+                <!-- Heading -->
+                <h6 class="navbar-heading text-muted">Data Kategori</h6>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/menu/studentanBarangList">
+                            <i class="ni ni-bullet-list-67 text-blue"></i> Daftar Peminjaman Barang
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/menu/addPeminjamanBarangForm">
+                            <i class="ni ni-bag-17 text-blue"></i> Peminjaman Barang
+                        </a>
+                    </li>
+                </ul>
+                <hr class="my-3">
+                <!-- Heading -->
+                <h6 class="navbar-heading text-muted">Data Mata Pelajaran</h6>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/menu/barangList">
+                            <i class="ni ni-archive-2 text-blue"></i> Daftar Barang
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/menu/barangMasukList">
+                            <i class="ni ni-bold-left text-blue"></i> Daftar Barang Masuk
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/menu/barangKeluarList">
+                            <i class="ni ni-bold-right text-blue"></i> Daftar Barang Keluar
+                        </a>
+                    </li>
+                </ul>
+                <hr class="my-3">
+                <!-- Heading -->
+                <h6 class="navbar-heading text-muted">Data Sub Mata Pelajaran</h6>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/menu/barangList">
+                            <i class="ni ni-archive-2 text-blue"></i> Daftar Barang
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/menu/barangMasukList">
+                            <i class="ni ni-bold-left text-blue"></i> Daftar Barang Masuk
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/menu/barangKeluarList">
+                            <i class="ni ni-bold-right text-blue"></i> Daftar Barang Keluar
+                        </a>
+                    </li>
+                </ul>
+                <hr class="my-3">
+                <!-- Heading -->
+                <h6 class="navbar-heading text-muted">Data Mata Pelajaran</h6>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/menu/barangList">
+                            <i class="ni ni-archive-2 text-blue"></i> Daftar Barang
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/menu/barangMasukList">
+                            <i class="ni ni-bold-left text-blue"></i> Daftar Barang Masuk
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/menu/barangKeluarList">
+                            <i class="ni ni-bold-right text-blue"></i> Daftar Barang Keluar
+                        </a>
+                    </li>
+                </ul>
+                <hr class="my-3">
+                <!-- Heading -->
+                <h6 class="navbar-heading text-muted">Data Biaya</h6>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/menu/barangList">
+                            <i class="ni ni-archive-2 text-blue"></i> Daftar Barang
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/menu/barangMasukList">
+                            <i class="ni ni-bold-left text-blue"></i> Daftar Barang Masuk
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/menu/barangKeluarList">
+                            <i class="ni ni-bold-right text-blue"></i> Daftar Barang Keluar
+                        </a>
+                    </li>
+                </ul>
             @endif
-            @if(Auth::guard('administrator')->check() || Auth::guard('student')->check())
-            <hr class="my-3">
-            <!-- Heading -->
-            <h6 class="navbar-heading text-muted">Entri Peminjaman Barang</h6>
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="/menu/studentanBarangList">
-                        <i class="ni ni-bullet-list-67 text-blue"></i> Daftar Peminjaman Barang
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/menu/addPeminjamanBarangForm">
-                        <i class="ni ni-bag-17 text-blue"></i> Peminjaman Barang
-                    </a>
-                </li>
-            </ul>
-            @endif
-            @if(Auth::guard('administrator')->check() || Auth::guard('teacher')->check())
-            <hr class="my-3">
-            <!-- Heading -->
-            <h6 class="navbar-heading text-muted">Entri Data Barang</h6>
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="/menu/barangList">
-                        <i class="ni ni-archive-2 text-blue"></i> Daftar Barang
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/menu/barangMasukList">
-                        <i class="ni ni-bold-left text-blue"></i> Daftar Barang Masuk
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/menu/barangKeluarList">
-                        <i class="ni ni-bold-right text-blue"></i> Daftar Barang Keluar
-                    </a>
-                </li>
-            </ul>
-            @endif
-            @if(Auth::guard('teacher')->check())
-            <hr class="my-3">
-            <!-- Heading -->
-            <h6 class="navbar-heading text-muted">Generate Laporan</h6>
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="/menu/reportBarangList">
-                        <i class="ni ni-single-copy-04 text-blue"></i> Laporan Daftar Barang
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/menu/reportBarangMasukList">
-                        <i class="ni ni-cart text-blue"></i> Laporan Barang Masuk
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/menu/reportBarangKeluarList">
-                        <i class="ni ni-curved-next text-blue"></i> Laporan Barang Keluar
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/menu/reportPeminjamanBarangList">
-                        <i class="ni ni-ruler-pencil text-blue"></i> Laporan Peminjaman Barang
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/menu/reportBeritaAcaraBarangMasukList">
-                        <i class="ni ni-cart text-blue"></i> Laporan Berita Acara Barang Masuk
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/menu/reportBeritaAcaraBarangKeluarList">
-                        <i class="ni ni-curved-next text-blue"></i> Laporan Berita Acara Barang Keluar
-                    </a>
-                </li>
-            </ul>
-                @endif
+
         </div>
     </div>
 
