@@ -6,6 +6,8 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Alert;
+use UxWeb\SweetAlert\SweetAlert;
 
 class LoginController extends Controller
 {
@@ -18,18 +20,20 @@ class LoginController extends Controller
             'auth' => 'required|min:5',
             'password' => 'required'
         ]);
-        $auth = $request->auth;
+        $auth =$request->auth;
         $password = md5($request->password);
-        $user = User::where('username',$auth)->orWhere('email',$auth)
-            ->where('password',$password)->first();
+//        $user = User::where('email','=',$auth)->orWhere('username','=',$auth)
+//            ->where('password',$password)->first();
+
+        $user =  DB::select("SELECT * FROM t_user WHERE (email='$auth' OR username='$auth') AND password='$password'");
+        $user = (object) $user[0];
         if(isset($user)){
             $level=$user->level;
-            Auth::guard("$level")->LoginUsingId($user['user_id']);
+            Auth::guard("$level")->LoginUsingId($user->user_id);
             return redirect("/$level");
         }else{
-            $alert = "danger";
-            $status = "Anda Gagal Login ! ";
-            return $this->redirectWithStatus($alert,$status);
+            SweetAlert::info('Anda Gagal Login !','Maaf');
+            return redirect()->back();
         }
 
     }

@@ -2022,13 +2022,13 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                 </div>
                 <h3>Sign in</h3>
                 {{ csrf_field()}}
-               
+
                     <div class="row">
                         <div class="col-xl-12 col-md-12">
-                            <input type="text" autocomplete="off" placeholder="Enter E-mail or Username" name="auth">
+                            <input type="text" autocomplete="off" placeholder="Enter E-mail or Username" name="auth" required>
                         </div>
                         <div class="col-xl-12 col-md-12">
-                            <input type="password" placeholder="Password" name="password">
+                            <input type="password" placeholder="Password" name="password" required>
                         </div>
                         <div class="col-xl-12">
                             <button type="submit" class="boxed_btn_orange">Sign in</button>
