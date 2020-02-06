@@ -22,3 +22,16 @@ Route::get('/student', "HomeController@home")->middleware('auth:student');
 
 Route::get('/', 'HomeController@index')->middleware('guest');
 
+Route::get('/kursus', function () {
+    return view('kursus');
+})->middleware('guest');
+
+Route::get('/kontak', function () {
+    return view('contact');
+})->middleware('guest');
+
+Route::get('/tentang_kami', function () {
+    return view('tentang_kami');
+})->middleware('guest');
+
+
