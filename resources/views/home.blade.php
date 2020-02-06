@@ -1,8 +1,8 @@
 @extends('master.master')
 
-@section('page-title', 'Home')
+@section('page-title', 'Dashboard')
 
-@section('title','Home')
+@section('title','Dashboard')
 
 @section('script')
 @endsection

@@ -87,7 +87,7 @@
             <div class="navbar-collapse-header d-md-none">
                 <div class="row">
                     <div class="col-6 collapse-brand">
-                        <a href="./index.html">
+                        <a href="">
                             <img src="/asset_template/img/brand/blue.png">
                         </a>
                     </div>
@@ -119,51 +119,27 @@
                             <i class="ni ni-badge text-blue"></i> Daftar User
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/menu/addUserForm">
-                            <i class="ni ni-app text-blue"></i> Tambah User
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/menu/suplierList">
-                            <i class="ni ni-bullet-list-67 text-blue"></i> Daftar Suplier
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/menu/addSuplierForm">
-                            <i class="ni ni-box-2 text-blue"></i> Tambah Suplier
-                        </a>
-                    </li>
                 </ul>
                 <hr class="my-3">
                 <!-- Heading -->
                 <h6 class="navbar-heading text-muted">Data Kategori</h6>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="/menu/studentanBarangList">
-                            <i class="ni ni-bullet-list-67 text-blue"></i> Daftar Peminjaman Barang
+                        <a class="nav-link" href="/menu/kategoriList">
+                            <i class="ni ni-bullet-list-67 text-blue"></i> Daftar Kategori
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/menu/addPeminjamanBarangForm">
-                            <i class="ni ni-bag-17 text-blue"></i> Peminjaman Barang
+                        <a class="nav-link" href="/menu/studentanBarangList">
+                            <i class="ni ni-bullet-list-67 text-blue"></i> Tambah Kategori
                         </a>
                     </li>
+
                 </ul>
                 <hr class="my-3">
                 <!-- Heading -->
                 <h6 class="navbar-heading text-muted">Data Mata Pelajaran</h6>
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/menu/barangList">
-                            <i class="ni ni-archive-2 text-blue"></i> Daftar Barang
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/menu/barangMasukList">
-                            <i class="ni ni-bold-left text-blue"></i> Daftar Barang Masuk
-                        </a>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/menu/barangKeluarList">
                             <i class="ni ni-bold-right text-blue"></i> Daftar Barang Keluar
@@ -179,36 +155,6 @@
                             <i class="ni ni-archive-2 text-blue"></i> Daftar Barang
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/menu/barangMasukList">
-                            <i class="ni ni-bold-left text-blue"></i> Daftar Barang Masuk
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/menu/barangKeluarList">
-                            <i class="ni ni-bold-right text-blue"></i> Daftar Barang Keluar
-                        </a>
-                    </li>
-                </ul>
-                <hr class="my-3">
-                <!-- Heading -->
-                <h6 class="navbar-heading text-muted">Data Mata Pelajaran</h6>
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/menu/barangList">
-                            <i class="ni ni-archive-2 text-blue"></i> Daftar Barang
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/menu/barangMasukList">
-                            <i class="ni ni-bold-left text-blue"></i> Daftar Barang Masuk
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/menu/barangKeluarList">
-                            <i class="ni ni-bold-right text-blue"></i> Daftar Barang Keluar
-                        </a>
-                    </li>
                 </ul>
                 <hr class="my-3">
                 <!-- Heading -->
@@ -217,16 +163,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/menu/barangList">
                             <i class="ni ni-archive-2 text-blue"></i> Daftar Barang
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/menu/barangMasukList">
-                            <i class="ni ni-bold-left text-blue"></i> Daftar Barang Masuk
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/menu/barangKeluarList">
-                            <i class="ni ni-bold-right text-blue"></i> Daftar Barang Keluar
                         </a>
                     </li>
                 </ul>

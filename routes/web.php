@@ -22,3 +22,9 @@ Route::get('/student', "HomeController@home")->middleware('auth:student');
 
 Route::get('/', 'HomeController@index')->middleware('guest');
 
+Route::group('/menu', function(){
+
+    Route::get('/kategoriList','KategoriController@kategoriList');
+
+});
+
