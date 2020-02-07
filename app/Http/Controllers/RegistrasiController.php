@@ -6,6 +6,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use UxWeb\SweetAlert\SweetAlert;
 
 class RegistrasiController extends Controller
 {
@@ -13,40 +14,35 @@ class RegistrasiController extends Controller
 
     public function registrasi(Request $request){
         $this->validate($request,[
-            'fullname' => 'required|min:7|max:50',
+            'fullname' => 'required|min:5|max:50',
             'username' => 'required|min:5|max:20',
+            'email' => 'required',
             'password' => 'required|min:6',
             'confirm_password' => 'required|min:6',
         ]);
 
-        $user = User::where('username',$request->username)->first();
-        $userCheck = DB::select("SELECT 1 FROM t_user LIMIT 2");
+        $user = User::where('username',$request->username)->orWhere('email',$request->email)->first();
         if($request->password == $request->confirm_password){
             if(isset($user)){
-                return redirect()->back()->with('status','Username Telah Terdaftar !!!');
+                SweetAlert::info('Username dan Email Telah Terdaftar !','MAAF');
+                return redirect()->back();
             }else{
-                if(count($userCheck) > 0){
+
                     $user = new User();
                     $user->fullname = $request->fullname;
                     $user->username = $request->username;
-                    $user->level    = 'peminjam';
+                    $user->email = $request->email;
+                    $user->level    = 'student';
+                    $user->active    = 'Y';
                     $user->password = md5($request->password);
                     $user->save();
-                    Auth::guard("peminjam")->LoginUsingId($user['user_id']);
-                    return redirect('/peminjam');
-                }else{
-                    $user = new User();
-                    $user->fullname = $request->fullname;
-                    $user->username = $request->username;
-                    $user->level    = 'administrator';
-                    $user->password = md5($request->password);
-                    $user->save();
-                    Auth::guard("administrator")->LoginUsingId($user['user_id']);
-                    return redirect('/administrator');
-                }
+                    Auth::guard("student")->LoginUsingId($user['user_id']);
+                    return redirect('/student');
+
             }
         }else{
-            return redirect()->back()->with('status','Password Tidak Sama !!!');
+            SweetAlert::info('Password Tidak Sinkron !','MAAF');
+            return redirect()->back();
         }
 
     }

@@ -12,10 +12,10 @@
 |
 */
 
-Route::get('/login',  'LoginController@index')->middleware('guest');
-
 Route::post('/proses_login', 'LoginController@masuk');
 Route::get('/proses_logout', 'LoginController@keluar');
+
+Route::post('/proses_registrasi', 'RegistrasiController@registrasi');
 
 Route::get('/administrator', "LoginController@home")->middleware('auth:administrator');
 Route::get('/teacher', "LoginController@home")->middleware('auth:teacher');

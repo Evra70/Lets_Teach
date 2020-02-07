@@ -88,7 +88,7 @@
                         <div class="footer_widget">
                             <div class="footer_logo">
                                 <a href="#">
-                                    <img src="img/logo.png" alt="">
+                                    <img src="/asset/img/logo.png" alt="">
                                 </a>
                             </div>
                             <p>
@@ -215,7 +215,7 @@
     <!-- form itself end -->
 
     <!-- form itself end-->
-    <form id="test-form2" class="white-popup-block mfp-hide">
+    <form id="test-form2" class="white-popup-block mfp-hide" action="/proses_registrasi" method="post">
         <div class="popup_box ">
             <div class="popup_inner">
                 <div class="logo text-center">
@@ -224,25 +224,27 @@
                     </a>
                 </div>
                 <h3>Registration</h3>
-                <form action="/proses_registrasi" method="post">
+                    {{csrf_field()}}
                     <div class="row">
                         <div class="col-xl-12 col-md-12">
-                            <input type="email" placeholder="Enter email" required>
+                            <input type="text" placeholder="Enter fullname" autocomplete="off" required name="fullname">
                         </div>
                         <div class="col-xl-12 col-md-12">
-                            <input type="text" placeholder="Enter username" required>
+                            <input type="email" placeholder="Enter email" autocomplete="off" required name="email">
                         </div>
                         <div class="col-xl-12 col-md-12">
-                            <input type="password" placeholder="Password">
+                            <input type="text" placeholder="Enter username" autocomplete="off" required name="username">
                         </div>
                         <div class="col-xl-12 col-md-12">
-                            <input type="Password" placeholder="Confirm password">
+                            <input type="password" placeholder="Password" required name="password">
+                        </div>
+                        <div class="col-xl-12 col-md-12">
+                            <input type="Password" placeholder="Confirm password" required name="confirm_password">
                         </div>
                         <div class="col-xl-12">
                             <button type="submit" class="boxed_btn_orange">Sign Up</button>
                         </div>
                     </div>
-                </form>
             </div>
         </div>
     </form>

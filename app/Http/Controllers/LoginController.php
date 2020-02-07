@@ -12,9 +12,6 @@ use UxWeb\SweetAlert\SweetAlert;
 class LoginController extends Controller
 {
 
-    public function index(){
-        return view("welcome");
-    }
 
     public function home()
     {
@@ -53,12 +50,14 @@ class LoginController extends Controller
     public function keluar(){
         if(Auth::guard('administrator')->check()){
             Auth::guard('administrator')->logout();
+            return redirect('/');
         }else if(Auth::guard('teacher')->check()){
             Auth::guard('teacher')->logout();
+            return redirect('/');
         }else if(Auth::guard('student')->check()){
             Auth::guard('student')->logout();
+            return redirect('/');
         }
-        return redirect('/');
     }
 
 }
