@@ -15,7 +15,7 @@ class CreateTableKategori extends Migration
     {
         Schema::create('t_kategori', function (Blueprint $table) {
             $table->bigIncrements('kategori_id');
-            $table->string('kode_kategori',10);
+            $table->string('kode_kategori',10)->unique();
             $table->string('nama_kategori',50);
             $table->string('active',1);
         });

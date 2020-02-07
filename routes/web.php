@@ -34,14 +34,13 @@ Route::get('/menu/kategoriList','KategoriController@kategoriList')->middleware('
 Route::get('/menu/mapelList','MapelController@mapelList')->middleware('auth:administrator');
 
 
-
-
 Route::get('/kursus', 'MenuController@kursus')->middleware('guest');
 Route::get('/kontak', 'MenuController@kontak')->middleware('guest');
 Route::get('/tentang_kami', 'MenuController@tentangKami')->middleware('guest');
 
 //mapel
 Route::get('/menu/addMapelForm','MapelController@addMapelForm')->middleware('auth:administrator');
+Route::post('/menu/addMapelProcess','MapelController@addMapelProcess')->middleware('auth:administrator');
 Route::get('/mapel/{mapel_id}/delete','MapelController@deleteMapel')->middleware('auth:administrator');
 
 //sub mapel
