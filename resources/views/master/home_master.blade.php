@@ -224,10 +224,13 @@
                     </a>
                 </div>
                 <h3>Registration</h3>
-                <form action="#">
+                <form action="/proses_registrasi" method="post">
                     <div class="row">
                         <div class="col-xl-12 col-md-12">
-                            <input type="email" placeholder="Enter email">
+                            <input type="email" placeholder="Enter email" required>
+                        </div>
+                        <div class="col-xl-12 col-md-12">
+                            <input type="text" placeholder="Enter username" required>
                         </div>
                         <div class="col-xl-12 col-md-12">
                             <input type="password" placeholder="Password">
