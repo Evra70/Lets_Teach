@@ -12,11 +12,6 @@ class MenuController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     /**
      * Show the application dashboard.
      *
@@ -25,11 +20,6 @@ class MenuController extends Controller
     public function index()
     {
         return view('welcome');
-    }
-
-    public function home()
-    {
-        return view('home');
     }
 
     public function kursus()

@@ -130,7 +130,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/menu/studentanBarangList">
+                        <a class="nav-link" href="/menu/addKategoriForm">
                             <i class="ni ni-bullet-list-67 text-blue"></i> Tambah Kategori
                         </a>
                     </li>
