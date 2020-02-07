@@ -30,10 +30,8 @@ Route::post('/proses/addKategoriProcess','KategoriController@addKategoriProcess'
 Route::get('/kategori/{kategori_id}/delete','KategoriController@deleteKategori')->middleware('auth:administrator');
 
 
-Route::get('/menu/kategoriList','KategoriController@kategoriList');
+Route::get('/menu/kategoriList','KategoriController@kategoriList')->middleware('auth:administrator');
 Route::get('/menu/mapelList','MapelController@mapelList')->middleware('auth:administrator');
-
-
 
 
 Route::get('/kursus', 'MenuController@kursus')->middleware('guest');
@@ -42,5 +40,6 @@ Route::get('/tentang_kami', 'MenuController@tentangKami')->middleware('guest');
 
 //tambah mapel
 Route::get('/menu/addMapelForm','MapelController@addMapelForm')->middleware('auth:administrator');
+Route::post('/menu/addMapelProcess','MapelController@addMapelProcess')->middleware('auth:administrator');
 Route::get('/mapel/{mapel_id}/delete','MapelController@deleteMapel')->middleware('auth:administrator');
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Kategori;
 use App\Mapel;
 use App\User;
 use Illuminate\Http\Request;
@@ -21,12 +22,30 @@ class MapelController extends Controller
 
     public function addMapelForm()
     {
-        return view('addMapelForm');
+        $kategoriList=Kategori::all();
+        return view('addMapelForm',['kategoriList' => $kategoriList]);
     }
 
-    public function prosesAddMapelList(Request $request)
+    public function addMapelProcess(Request $request)
     {
+        $this->validate($request,[
+            'kode_mapel' => 'required|min:3',
+            'kategori_id' => 'required',
+            'nama_mapel' => 'required|min:3'
+        ]);
 
+        $kodeMapel = $request->kode_mapel;
+        $namaMapel = $request->nama_mapel;
+        $kategoriId = $request->kategori_id;
+
+        $mapel = new Mapel();
+        $mapel->kode_mapel = $kodeMapel;
+        $mapel->kategori_id = $kategoriId;
+        $mapel->nama_mapel = $namaMapel;
+        $mapel->active = "Y";
+        $mapel->save();
+
+        return redirect('/menu/mapelList');
     }
     public function deleteMapel($mapel_id)
     {

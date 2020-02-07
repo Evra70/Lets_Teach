@@ -112,16 +112,6 @@
             @if(Auth::guard('administrator')->check())
                 <hr class="my-3">
                 <!-- Heading -->
-                <h6 class="navbar-heading text-muted">Data User</h6>
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/menu/mapelList/">
-                            <i class="ni ni-badge text-blue"></i> Daftar Mata Pelajaran
-                        </a>
-                    </li>
-                </ul>
-                <hr class="my-3">
-                <!-- Heading -->
                 <h6 class="navbar-heading text-muted">Data Kategori</h6>
                 <ul class="navbar-nav">
                     <li class="nav-item">
