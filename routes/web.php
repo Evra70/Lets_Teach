@@ -23,10 +23,16 @@ Route::get('/student', "LoginController@home")->middleware('auth:student');
 
 Route::get('/', 'MenuController@index')->middleware('guest');
 
+
 Route::get('/menu/kategoriList','KategoriController@kategoriList')->middleware('auth:administrator');
 Route::get('/menu/addKategoriForm','KategoriController@addKategoriForm')->middleware('auth:administrator');
 Route::post('/proses/addKategoriProcess','KategoriController@addKategoriProcess')->middleware('auth:administrator');
 Route::get('/kategori/{kategori_id}/delete','KategoriController@deleteKategori')->middleware('auth:administrator');
+
+
+Route::get('/menu/kategoriList','KategoriController@kategoriList');
+Route::get('/menu/mapelList','MapelController@mapelList')->middleware('auth:administrator');
+
 
 
 
@@ -34,4 +40,7 @@ Route::get('/kursus', 'MenuController@kursus')->middleware('guest');
 Route::get('/kontak', 'MenuController@kontak')->middleware('guest');
 Route::get('/tentang_kami', 'MenuController@tentangKami')->middleware('guest');
 
+//tambah mapel
+Route::get('/menu/addMapelForm','MapelController@addMapelForm')->middleware('auth:administrator');
+Route::get('/mapel/{mapel_id}/delete','MapelController@deleteMapel')->middleware('auth:administrator');
 
