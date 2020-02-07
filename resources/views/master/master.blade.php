@@ -115,8 +115,8 @@
                 <h6 class="navbar-heading text-muted">Data User</h6>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="/menu/userList">
-                            <i class="ni ni-badge text-blue"></i> Daftar User
+                        <a class="nav-link" href="/menu/mapelList/">
+                            <i class="ni ni-badge text-blue"></i> Daftar Mata Pelajaran
                         </a>
                     </li>
                 </ul>
@@ -141,8 +141,13 @@
                 <h6 class="navbar-heading text-muted">Data Mata Pelajaran</h6>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="/menu/barangKeluarList">
-                            <i class="ni ni-bold-right text-blue"></i> Daftar Barang Keluar
+                        <a class="nav-link" href="/menu/mapelList">
+                            <i class="ni ni-bold-right text-blue"></i> Daftar Mata Pelajaran
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/menu/addMapelForm">
+                            <i class="ni ni-bold-right text-blue"></i> Tambah Mata Pelajaran
                         </a>
                     </li>
                 </ul>

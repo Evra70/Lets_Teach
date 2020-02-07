@@ -23,10 +23,9 @@ Route::get('/student', "MenuController@home")->middleware('auth:student');
 
 Route::get('/', 'MenuController@index')->middleware('guest');
 
-<<<<<<< HEAD
-=======
 //Route::group('', function(){
-    Route::get('/menu/kategoriList','KategoriController@kategoriList');
+Route::get('/menu/kategoriList','KategoriController@kategoriList');
+Route::get('/menu/mapelList','MapelController@mapelList')->middleware('auth:administrator');
 
 //});
 
@@ -34,5 +33,7 @@ Route::get('/menu/kursus', 'MenuController@kursus')->middleware('guest');
 Route::get('/menu/kontak', 'MenuController@kontak')->middleware('guest');
 Route::get('/menu/tentang_kami', 'MenuController@tentangKami')->middleware('guest');
 
->>>>>>> b7d58f293d1e9318964e9e5fdf3c17ba53d6ef71
+//tambah mapel
+Route::get('/menu/addMapelForm','MapelController@addMapelForm')->middleware('auth:administrator');
+Route::get('/mapel/{mapel_id}/delete','MapelController@deleteMapel')->middleware('auth:administrator');
 
