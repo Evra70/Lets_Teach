@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class SubMapel extends Model
+class Province extends Model
 {
-   protected $table = "t_sub_mapel";
-   protected $primaryKey = "sub_mapel_id";
+   protected $table = "provinces";
+   protected $primaryKey = "id";
    public $timestamps = false;
 }

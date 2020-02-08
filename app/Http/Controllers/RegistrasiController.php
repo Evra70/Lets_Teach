@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\UserLocation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -19,6 +20,9 @@ class RegistrasiController extends Controller
             'email' => 'required',
             'password' => 'required|min:6',
             'confirm_password' => 'required|min:6',
+            'province_id' => 'required',
+            'regency_id' => 'required',
+            'district_id' => 'required',
         ]);
 
         $user = User::where('username',$request->username)->orWhere('email',$request->email)->first();
@@ -36,7 +40,15 @@ class RegistrasiController extends Controller
                     $user->active    = 'Y';
                     $user->password = md5($request->password);
                     $user->save();
-                    Auth::guard("student")->LoginUsingId($user['user_id']);
+
+                    $userLocation = new UserLocation();
+                    $userLocation->user_id = $user->user_id;
+                    $userLocation->province_id = $request->province_id;
+                    $userLocation->regency_id = $request->regency_id;
+                    $userLocation->district_id = $request->district_id;
+                    $userLocation->save();
+
+                    Auth::guard("student")->LoginUsingId($user->user_id);
                     return redirect('/student');
 
             }

@@ -33,7 +33,7 @@
                             <th scope="col">Kode Mata Pelajaran</th>
                             <th scope="col">Nama Mata Pelajaran</th>
                             <th scope="col">Active</th>
-                            <th scope="col">Aksi</th>
+                            <th scope="col"></th>
                         </tr>
                         </thead>
                         <tbody>

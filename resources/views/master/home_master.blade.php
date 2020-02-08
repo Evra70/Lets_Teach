@@ -241,6 +241,32 @@
                         <div class="col-xl-12 col-md-12">
                             <input type="Password" placeholder="Confirm password" required name="confirm_password">
                         </div>
+                        <div class="col-xl-12 col-md-12">
+                            <select name="province_id" style="margin-bottom: 20px;" required
+                                    class="form-control form-control-alternative dynamic"
+                                    id="province" data-dependent="regency">
+                                <option value="">--Pilih Provinsi--</option>
+                                @foreach($provinceList as $province)
+                                    <option value="{{$province->id}}">{{$province->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col-xl-12 col-md-12">
+                            <select name="regency_id" style="margin-bottom: 20px;" required
+                                    class="form-control form-control-alternative dynamic"
+                                    id="regency" data-dependent="district">
+                                <option value="">--Pilih Kabupaten/Kota--</option>
+
+                            </select>
+                        </div>
+                        <div class="col-xl-12 col-md-12">
+                            <select name="district_id" style="margin-bottom: 20px;" required
+                                    class="form-control form-control-alternative"
+                                    id="district">
+                                <option value="">--Pilih Kecamatan--</option>
+
+                            </select>
+                        </div>
                         <div class="col-xl-12">
                             <button type="submit" class="boxed_btn_orange">Sign Up</button>
                         </div>
@@ -268,6 +294,7 @@
     <script src="/asset/js/jquery.magnific-popup.min.js"></script>
     <script src="/asset/js/plugins.js"></script>
     <script src="/asset/js/gijgo.min.js"></script>
+{{--    <script src="/asset/js/vendor/jquery-1.12.4.min.js"></script>--}}
     <script src="/asset_sweet_alert/sweetalert.min.js"></script>
 
     @include('sweet::alert')
@@ -278,6 +305,28 @@
     <script src="/asset/js/jquery.validate.min.js"></script>
     <script src="/asset/js/mail-script.js"></script>
     <script src="/asset/js/main.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('.dynamic').change(function () {
+                if($(this).val() != ''){
+                    var select = $(this).attr("id");
+                    var value = $(this).val();
+                    var dependent = $(this).data('dependent');
+                    var _token = $('input[name="_token"]').val();
+                    $.ajax({
+                            url:"/dynamicDependent",
+                            method:"POST",
+                            data:{select:select, value:value, _token : _token, dependent:dependent},
+                            success:function (result) {
+                                console.log(result);
+                                $('#'+dependent).html(result);
+                            }
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

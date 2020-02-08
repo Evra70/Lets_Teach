@@ -15,10 +15,10 @@ class CreateTUserLocation extends Migration
     {
         Schema::create('t_user_location', function (Blueprint $table) {
             $table->bigIncrements('user_location_id');
-            $table->integer('user_id');
+            $table->integer('user_id')->unique();
             $table->integer('province_id');
             $table->integer('regency_id');
-            $table->integer('distric_id');
+            $table->integer('district_id');
             //$table->timestamps();
         });
     }
