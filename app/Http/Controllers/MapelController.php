@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Kategori;
 use App\Mapel;
-use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -28,6 +27,7 @@ class MapelController extends Controller
 
     public function addMapelProcess(Request $request)
     {
+
         $this->validate($request,[
             'kode_mapel' => 'required|min:3',
             'kategori_id' => 'required',
@@ -47,6 +47,7 @@ class MapelController extends Controller
 
         return redirect('/menu/mapelList');
     }
+
     public function deleteMapel($mapel_id)
     {
         $mapel=Mapel::find($mapel_id);
