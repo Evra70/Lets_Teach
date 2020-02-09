@@ -29,7 +29,7 @@ class MapelController extends Controller
     public function addMapelProcess(Request $request)
     {
         $this->validate($request,[
-            'kode_mapel' => 'required|min:3',
+            'kode_mapel' => 'required|min:2',
             'kategori_id' => 'required',
             'nama_mapel' => 'required|min:3'
         ]);

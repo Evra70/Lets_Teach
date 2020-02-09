@@ -124,8 +124,13 @@
                 <h6 class="navbar-heading text-muted">Data Sub Mata Pelajaran</h6>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="/menu/barangList">
-                            <i class="ni ni-archive-2 text-blue"></i> Daftar Barang
+                        <a class="nav-link" href="/menu/subMapelList">
+                            <i class="ni ni-archive-2 text-blue"></i> Daftar Sub Mata Pelajaran
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/menu/addSubMapelForm">
+                            <i class="ni ni-archive-2 text-blue"></i> Tambah Sub Mata Pelajaran
                         </a>
                     </li>
                 </ul>

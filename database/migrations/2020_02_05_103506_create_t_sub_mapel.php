@@ -15,6 +15,7 @@ class CreateTSubMapel extends Migration
     {
         Schema::create('t_sub_mapel', function (Blueprint $table) {
             $table->bigIncrements('sub_mapel_id');
+            $table->integer('mapel_id');
             $table->string('kode_sub_mapel',15)->unique();
             $table->string('nama_sub_mapel',150);
             $table->string('active',1);

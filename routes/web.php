@@ -40,3 +40,7 @@ Route::get('/menu/kategoriList','KategoriController@kategoriList')->middleware('
 Route::get('/menu/addKategoriForm','KategoriController@addKategoriForm')->middleware('auth:administrator');
 Route::post('/proses/addKategoriProcess','KategoriController@addKategoriProcess')->middleware('auth:administrator');
 Route::get('/kategori/{kategori_id}/delete','KategoriController@deleteKategori')->middleware('auth:administrator');
+
+//sub mapel
+Route::get('/menu/subMapelList','SubMapelController@subMapelList')->middleware('auth:administrator');
+//Route::get('/subMapel/{sub_mapel_id}/delete','SubMapelController@delete');

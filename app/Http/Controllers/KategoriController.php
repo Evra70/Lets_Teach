@@ -26,7 +26,7 @@ class KategoriController extends Controller
 
     public function addKategoriProcess(Request $request){
         $this->validate($request,[
-            'kode_kategori' => 'required|min:3',
+            'kode_kategori' => 'required|min:2',
             'nama_kategori' => 'required|min:3'
         ]);
 
