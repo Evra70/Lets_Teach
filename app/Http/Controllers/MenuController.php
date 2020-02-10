@@ -50,16 +50,20 @@ class MenuController extends Controller
 
     public function kursus()
     {
-        return view('kursus');
+        $provinceList = Province::orderBy('name')->get();
+        return view('kursus',['provinceList' => $provinceList]);
     }
 
     public function kontak()
     {
-        return view('kontak');
+        $provinceList = Province::orderBy('name')->get();
+        return view('kontak',['provinceList' => $provinceList]);
     }
 
     public function tentangKami()
     {
-        return view('tentang_kami');
+        $provinceList = Province::orderBy('name')->get();
+        return view('tentang_kami',['provinceList' => $provinceList]);
     }
+
 }
