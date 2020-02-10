@@ -18,7 +18,7 @@
                             <h3>Learn your <br>
                                 Favorite Course <br>
                                 From Online</h3>
-                            <a href="#" class="boxed_btn">Browse Our Courses</a>
+                            <a href="#test-form" class="boxed_btn login popup-with-form">Browse Our Courses</a>
                         </div>
                     </div>
                 </div>

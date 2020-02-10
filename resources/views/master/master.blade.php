@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Aplikasi Inventaris untuk Project PAS">
     <meta name="author" content="Ephraim Jehudah Pelealu">
-    <title>Inventaris - @yield('page-title')</title>
+    <title>Lets Teach - @yield('page-title')</title>
     <!-- Favicon -->
     <link href="/asset_template/img/brand/favicon.png" rel="icon" type="image/png">
     <!-- Fonts -->
@@ -139,13 +139,79 @@
                 <h6 class="navbar-heading text-muted">Data Biaya</h6>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="/menu/barangList">
-                            <i class="ni ni-archive-2 text-blue"></i> Daftar Barang
+                        <a class="nav-link" href="/menu/biayaList">
+                            <i class="ni ni-archive-2 text-blue"></i> Daftar Biaya
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/menu/addBiayaForm">
+                            <i class="ni ni-archive-2 text-blue"></i    > Tambah Biaya
                         </a>
                     </li>
                 </ul>
             @endif
-
+            @if(Auth::guard('student')->check())
+                <hr class="my-3">
+                <!-- Heading -->
+                <h6 class="navbar-heading text-muted">Data Mapel</h6>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/menu/mapelList">
+                            <i class="ni ni-bullet-list-67 text-blue"></i> Daftar Mapel
+                        </a>
+                    </li>
+                </ul>
+                <hr class="my-3">
+                <!-- Heading -->
+                <h6 class="navbar-heading text-muted">Data Pemesanan</h6>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/menu/mapelList">
+                            <i class="ni ni-bullet-list-67 text-blue"></i> Buat Pemesanan
+                        </a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/menu/mapelList">
+                            <i class="ni ni-bullet-list-67 text-blue"></i> Pemesanan Saya
+                        </a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/menu/mapelList">
+                            <i class="ni ni-bullet-list-67 text-blue"></i> Riwayat Pemesanan
+                        </a>
+                    </li>
+                </ul>
+            @endif
+            @if(Auth::guard('teacher')->check())
+                <hr class="my-3">
+                <!-- Heading -->
+                <h6 class="navbar-heading text-muted">Data Pemesanan</h6>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/menu/mapelList">
+                            <i class="ni ni-bullet-list-67 text-blue"></i> Terima Kursus
+                        </a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/menu/mapelList">
+                            <i class="ni ni-bullet-list-67 text-blue"></i> Kursus Saya
+                        </a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/menu/mapelList">
+                            <i class="ni ni-bullet-list-67 text-blue"></i> Riwayat Kursus
+                        </a>
+                    </li>
+                </ul>
+            @endif
         </div>
     </div>
 

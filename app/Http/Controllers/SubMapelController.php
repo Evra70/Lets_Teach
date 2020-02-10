@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mapel;
 use App\SubMapel;
 use App\User;
 use Illuminate\Http\Request;
@@ -19,18 +20,37 @@ class SubMapelController extends Controller
         return view('subMapelList', ['subMapelList' => $subMapelList]);
     }
 
-//    public function addSubMapelForm()
-//    {
-//        return view('addSubMapelForm');
-//    }
-
-//    public function prosesAddMapelList(Request $request)
-//    {
-//
-//    }
-    public function deleteSubMapel($sub_mapel_id)
+    public function addSubMapelForm()
     {
-        $subMapel=SubMapel::find($sub_mapel_id);
+        $mapelList =Mapel::all();
+        return view('addSubMapelForm',["mapelList" => $mapelList]);
+    }
+
+    public function addSubMapleProcess(Request $request)
+    {
+        $this->validate($request,[
+            'kode_sub_mapel' => 'required|min:2',
+            'mapel_id' => 'required',
+            'nama_sub_mapel' => 'required|min:3'
+        ]);
+
+        $kodeSubMapel = $request->kode_sub_mapel;
+        $namaSubMapel = $request->nama_sub_mapel;
+        $mapelId      = $request->mapel_id;
+
+        $subMapel = new SubMapel();
+        $subMapel->kode_sub_mapel = $kodeSubMapel;
+        $subMapel->mapel_id = $mapelId;
+        $subMapel->nama_sub_mapel = $namaSubMapel;
+        $subMapel->active = "Y";
+        $subMapel->save();
+
+        return redirect('/menu/subMapelList');
+    }
+
+    public function deleteSubMapel($sub_sub_mapel_id)
+    {
+        $subMapel=SubMapel::find($sub_sub_mapel_id);
         $subMapel->delete();
         return(redirect('/menu/subMapelList'));
     }

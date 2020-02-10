@@ -25,15 +25,17 @@ Route::get('/', 'MenuController@index')->middleware('guest');
 
 Route::post('/dynamicDependent', 'MenuController@dynamicDependent')->middleware('guest');
 
+
 Route::get('/kursus', 'MenuController@kursus')->middleware('guest');
 Route::get('/kontak', 'MenuController@kontak')->middleware('guest');
 Route::get('/tentang_kami', 'MenuController@tentangKami')->middleware('guest');
 
-//tambah mapel
+// mapel
 Route::get('/menu/addMapelForm','MapelController@addMapelForm')->middleware('auth:administrator');
 Route::post('/menu/addMapelProcess','MapelController@addMapelProcess')->middleware('auth:administrator');
 Route::get('/mapel/{mapel_id}/delete','MapelController@deleteMapel')->middleware('auth:administrator');
-Route::get('/menu/mapelList','MapelController@mapelList')->middleware('auth:administrator');
+Route::get('/menu/mapelList','MapelController@mapelList')->middleware('auth:administrator,student');
+Route::get('/mapel/{mapel_id}/detail','MapelController@mapelStudentDetail')->middleware('auth:student');
 
 //kategori
 Route::get('/menu/kategoriList','KategoriController@kategoriList')->middleware('auth:administrator');
@@ -43,4 +45,15 @@ Route::get('/kategori/{kategori_id}/delete','KategoriController@deleteKategori')
 
 //sub mapel
 Route::get('/menu/subMapelList','SubMapelController@subMapelList')->middleware('auth:administrator');
+Route::get('/menu/addSubMapelForm','SubMapelController@addSubMapelForm')->middleware('auth:administrator');
+Route::post('/menu/addSubMapleProcess','SubMapelController@addSubMapleProcess')->middleware('auth:administrator');
 //Route::get('/subMapel/{sub_mapel_id}/delete','SubMapelController@delete');
+
+//biaya
+Route::get('/menu/biayaList','BiayaController@biayaList')->middleware('auth:administrator');
+Route::get('/menu/addBiayaForm','BiayaController@addBiayaForm')->middleware('auth:administrator');
+Route::post('/menu/addBiayaProcess','BiayaController@addBiayaProcess')->middleware('auth:administrator');
+
+//pemesanan
+Route::get('/pesan/{mapel_id}/form','PesanController@formPemesananById')->middleware('auth:student');
+Route::post('/menu/addPemesananProcess','PesanController@addPemesananProcess')->middleware('auth:student');
