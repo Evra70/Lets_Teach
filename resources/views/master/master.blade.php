@@ -16,6 +16,8 @@
     <link href="/asset_template/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
     <!-- Argon CSS -->
     <link type="text/css" href="/asset_template/css/argon.css?v=1.0.0" rel="stylesheet">
+    <link href="/asset/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="/asset/js/bootstrap.min.js"></script>
 </head>
 
 <body>

@@ -90,6 +90,7 @@ class PesanController extends Controller
         $pesanan = DB::table('t_transaksi')
             ->leftJoin('t_user', 't_transaksi.teacher_id', '=', 't_transaksi.user_id')
             ->join('t_mapel', 't_transaksi.mapel_id', '=', 't_mapel.mapel_id')
+            ->where('t_transaksi.user_id',Auth::user()->user_id)
             ->select('t_transaksi.kode_transaksi', 't_mapel.nama_mapel', 't_transaksi.transaksi_id',
                 't_transaksi.tgl_transaksi', 't_transaksi.lama_sewa', 't_user.fullname as nama_teacher',
                 't_transaksi.biaya', 't_transaksi.deskripsi_transaksi', 't_transaksi.status_pemesanan'
@@ -114,23 +115,6 @@ class PesanController extends Controller
 
     public function getPesananList()
     {
-        $teacher_id = Auth::user()->user_id;
-        $teacher = DB::table('t_user')
-            ->join('t_user_location', 't_user_location.user_id', '=', 't_user.user_id')
-            ->join('t_policy_teacher', 't_policy_teacher.teacher_id', '=', 't_user.user_id')
-            ->where('t_user.user_id', "$teacher_id")
-            ->select('t_user_location.*', 't_policy_teacher.mapel_id')
-            ->first();
-        $pesanan = DB::select("SELECT A.*  FROM t_transaksi A 
-                                    INNER JOIN t_user_location B ON A.user_id = B.user_id
-                                    WHERE B.province_id = '$teacher->province_id' 
-                                    AND B.regency_id = '$teacher->regency_id'
-                                    AND B.district_id = '$teacher->district_id'
-                                    AND A.status_pemesanan = 'N'
-                                    AND A.mapel_id = '$teacher->mapel_id'
-                                    AND A.versi = '0'
-                                   ");
-
-        return view('getPesananList', ["pesananList" => $pesanan]);
+        return view('getPesananList');
     }
 }
