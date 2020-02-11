@@ -15,8 +15,8 @@ class CreateTChat extends Migration
     {
         Schema::create('t_chat', function (Blueprint $table) {
             $table->bigIncrements('chat_id');
-            $table->integer('std_id');
-            $table->integer('tcr_id');
+            $table->integer('send_id');
+            $table->integer('get_id');
             $table->text('txt');
 //            $table->timestamps();
         });

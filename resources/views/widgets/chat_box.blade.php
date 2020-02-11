@@ -160,17 +160,7 @@
 </style>
 <script>
     $(document).ready(function(){
-        var _token = $('input[name="_token"]').val();
-        var transaksi_id = $('input[name="transaksi_id"]').val();
-        $.ajax({
-            url:"/getChat",
-            method:"POST",
-            data:{transaksi_id:transaksi_id, _token : _token},
-            success:function (result) {
-                var r = result[0];
-
-
-            }
+        $('#scroll').scrollTop($('#scroll')[0].scrollHeight);
     });
 </script>
 <section class="msger scroll">
@@ -179,51 +169,45 @@
             <i class="fas fa-comment-alt"></i> PemesananChat
         </div>
         <div class="msger-header-options">
-            <span><i class="fas fa-cog"></i></span>
+
         </div>
     </header>
 
-    <main class="msger-chat">
-        <div class="msg left-msg">
-            <div
-                class="msg-img"
-                style="background-image: url(https://image.flaticon.com/icons/svg/327/327779.svg)"
-            ></div>
+    <main class="msger-chat" id="scroll">
+        @foreach($chatList as $chat)
+            @if($chat->send_id == $user_id)
+                <div class="msg right-msg">
+                    <div
+                        class="msg-img"
+                        style="background-image: url(https://image.flaticon.com/icons/svg/327/327779.svg)"
+                    ></div>
 
-            <div class="msg-bubble">
-                <div class="msg-info">
-                    <div class="msg-info-name">BOT</div>
-                    <div class="msg-info-time">12:45</div>
+                    <div class="msg-bubble">
+                        <div class="msg-info">
+                            <div class="msg-info-name">{{$chat->send_id == $user->user_id ? $user->fullname : $teacher->fullname}}</div>
+                        </div>
+                        <div class="msg-text">
+                            {{$chat->txt}}
+                        </div>
+                    </div>
                 </div>
+            @else
+                <div class="msg left-msg">
+                    <div
+                        class="msg-img"
+                        style="background-image: url(https://image.flaticon.com/icons/svg/327/327779.svg)"
+                    ></div>
 
-                <div class="msg-text">
-                    Hi, welcome to SimpleChat! Go ahead and send me a message. 😄
+                    <div class="msg-bubble">
+                        <div class="msg-info">
+                            <div class="msg-info-name">{{$chat->send_id == $user->user_id ? $user->fullname : $teacher->fullname}}</div>
+                        </div>
+                        <div class="msg-text">
+                            {{$chat->txt}}
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-
-        <div class="msg right-msg">
-            <div
-                class="msg-img"
-                style="background-image: url(https://image.flaticon.com/icons/svg/145/145867.svg)"
-            ></div>
-
-            <div class="msg-bubble">
-                <div class="msg-info">
-                    <div class="msg-info-name">Sajad</div>
-                    <div class="msg-info-time">12:46</div>
-                </div>
-
-                <div class="msg-text">
-                    You can change your name in JS section!
-                </div>
-            </div>
-        </div>
-
+            @endif
+        @endforeach
     </main>
-
-    <form class="msger-inputarea">
-        <input id="chat_text" type="text" class="msger-input" placeholder="Enter your message...">
-        <button id="btn_text" type="submit" class="msger-send-btn">Send</button>
-    </form>
 </section>

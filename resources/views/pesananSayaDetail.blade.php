@@ -26,6 +26,9 @@
                 </div>
                 <div class="card-body">
                     <div class="row">
+                        <input type="hidden" name="transaksi_id" value="{{$pesanan->transaksi_id}}">
+                        <input type="hidden" name="login_id" value="{{Auth::user()->user_id}}">
+                        {{csrf_field()}}
                         <h4 style="margin-left:20px;">Kode Transaksi : {{$pesanan->kode_transaksi}}</h4>
                     </div>
                     <div class="row">
@@ -60,9 +63,14 @@
                         <h4 style="margin-left:20px;">Status Pemesanan : <span id="status"></span></h4>
                     </div>
                     <hr class="my-3">
-                    <input type="hidden" name="transaksi_id" value="{{$pesanan->transaksi_id}}">
-                    {{csrf_field()}}
-                    {{\Arrilot\Widgets\AsyncFacade::run('chat_box')}}
+                    <div id="xchat">
+                        {{\Arrilot\Widgets\AsyncFacade::run('chat_box',[],$pesanan->transaksi_id,Auth::user()->user_id)}}
+
+                    <div class="msger-inputarea" style="width: 80%;margin-left: 10px;">
+                        <input  type="text" name="chat_text" class="msger-input" autocomplete="off" required placeholder="Enter your message...">
+                        <button id="btn_text" type="submit" class="msger-send-btn">Send</button>
+                    </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -72,8 +80,28 @@
     <script>
         $(document).ready(function(){
             $(".pengajar").hide();
+            $("#xchat").hide();
 
-            setInterval('status()',500)
+            $("#btn_text").click(function () {
+                var _token = $('input[name="_token"]').val();
+                var transaksi_id = $('input[name="transaksi_id"]').val();
+                var chat_text = $('input[name="chat_text"]').val();
+                var login_id = $('input[name="login_id"]').val();
+                if(chat_text != null){
+                    $.ajax({
+                        url:"/addChat",
+                        method:"POST",
+                        data:{transaksi_id:transaksi_id, _token : _token,chat_text:chat_text,login_id:login_id},
+                        success:function (result) {
+                            $('input[name="chat_text"]').val("")
+                        }
+                    });
+                }
+
+            });
+
+            setInterval('status()',500);
+
         });
 
         function status() {
@@ -103,6 +131,7 @@
             }else if (r.status_pemesanan == 'P'){
                 status = "Pengajar Ditemukan";
                 btn = "success";
+                $('#xchat').show();
             }else if (r.status_pemesanan == 'Y'){
                 status = "Pengajar Telah Sampai";
                 btn = "info";

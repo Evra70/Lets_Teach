@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Biaya;
+use App\Chat;
 use App\Kategori;
 use App\Mapel;
 use App\SubMapel;
@@ -26,10 +27,25 @@ class PesanController extends Controller
         return view('formPemesananById', ['mapel' => $mapel, "subMapelList" => $subMapelList]);
     }
 
-    public function addMapelForm()
+
+    public function addChat(Request $request)
     {
-        $kategoriList = Kategori::all();
-        return view('addMapelForm', ['kategoriList' => $kategoriList]);
+        $transaksi_id = $request->transaksi_id;
+        $send_id = $request->login_id;
+        $txt = $request->chat_text;
+        $transaksi= Transaksi::find($transaksi_id);
+        $get_id=0;
+        if($transaksi->teacher_id == $send_id){
+            $get_id = $transaksi->user_id;
+        }else if ($transaksi->user_id == $send_id){
+            $get_id = $transaksi->teacher_id;
+        }
+
+        $chat=new Chat();
+        $chat->send_id =$send_id;
+        $chat->get_id =$get_id;
+        $chat->txt =$txt;
+        $chat->save();
     }
 
     public function terimaPesananProcess($transaksi_id)

@@ -21,6 +21,7 @@ class NewOrder extends AbstractWidget
     public function run($navigation)
     {
         $teacher_id = $navigation;
+
         $teacher = DB::table('t_user')
             ->join('t_user_location', 't_user_location.user_id', '=', 't_user.user_id')
             ->join('t_policy_teacher', 't_policy_teacher.teacher_id', '=', 't_user.user_id')
