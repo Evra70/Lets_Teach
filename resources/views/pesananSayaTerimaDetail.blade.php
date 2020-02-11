@@ -53,6 +53,7 @@
                     <input type="hidden" name="transaksi_id" value="{{$pesanan->transaksi_id}}">
                     {{csrf_field()}}
                 </div>
+
             </div>
         </div>
     </div>

@@ -21,45 +21,48 @@
         <div class="col">
             <div class="card shadow">
                 <div class="card-header bg-transparent">
-                    <h3 class="mb-0 text-center">DETAIL PESANAN SAYA
-                        <a href="/menu/mapelList" class="btn btn-info" style="float: right;"> << Back</a></h3>
+                    <h4 class="mb-0 text-center">DETAIL PESANAN SAYA
+                        <a href="/menu/mapelList" class="btn btn-info" style="float: right;"> << Back</a></h4>
                 </div>
                 <div class="card-body">
                     <div class="row">
-                        <h3>Kode Transaksi : {{$pesanan->kode_transaksi}}</h3>
+                        <h4 style="margin-left:20px;">Kode Transaksi : {{$pesanan->kode_transaksi}}</h4>
                     </div>
                     <div class="row">
-                        <h3>Waktu Transaksi : {{Date("H:i:s, d-m-Y",strtotime($pesanan->tgl_transaksi))}}</h3>
+                        <h4 style="margin-left:20px;">Waktu Transaksi : {{Date("H:i:s, d-m-Y",strtotime($pesanan->tgl_transaksi))}}</h4>
                     </div>
                     <div class="row">
-                        <h3>Nama Mata Pelajaran : {{$pesanan->nama_mapel}}</h3>
+                        <h4 style="margin-left:20px;">Nama Mata Pelajaran : {{$pesanan->nama_mapel}}</h4>
                     </div>
                     <div class="row">
-                        <h3>Waktu Kursus : {{$pesanan->lama_sewa}} Jam</h3>
+                        <h4 style="margin-left:20px;">Waktu Kursus : {{$pesanan->lama_sewa}} Jam</h4>
                     </div>
                     <div class="row">
-                        <h3>Biaya Kursus : Rp. {{number_format($pesanan->biaya,2,",",".")}}</h3>
+                        <h4 style="margin-left:20px;">Biaya Kursus : Rp. {{number_format($pesanan->biaya,2,",",".")}}</h4>
                     </div>
                     <div class="row pengajar">
-                        <h3>Guru Kursus : <span id="nama_pengajar"></span></h3>
+                        <h4 style="margin-left:20px;">Guru Kursus : <span id="nama_pengajar"></span></h4>
                     </div>
                     <div class="row pengajar">
-                        <h3>Waktu Terima : <span id="waktu_terima"></span></h3>
+                        <h4 style="margin-left:20px;">Waktu Terima : <span id="waktu_terima"></span></h4>
                     </div>
                     <div class="row">
-                        <h3>Daftar Sub Mata Pelajaran :</h3>
-                        <ol>
+                        <h4 style="margin-left:20px;">Daftar Sub Mata Pelajaran :</h4><br>
+                    </div>
+                    <div class="row">
+                        <ul>
                             @for($i=0;$i < count($pesanan->deskripsi_transaksi);$i++)
-                            <h4><li>{{$pesanan->deskripsi_transaksi[$i]}}</li></h4>
+                                <h5 style="margin-left:40px;"><li>{{$pesanan->deskripsi_transaksi[$i]}}</li></h5>
                             @endfor
-                        </ol>
+                        </ul>
                     </div>
                     <div class="row">
-                        <h3>Status Pemesanan : <span id="status"></span></h3>
+                        <h4 style="margin-left:20px;">Status Pemesanan : <span id="status"></span></h4>
                     </div>
                     <hr class="my-3">
                     <input type="hidden" name="transaksi_id" value="{{$pesanan->transaksi_id}}">
                     {{csrf_field()}}
+                    {{\Arrilot\Widgets\AsyncFacade::run('chat_box')}}
                 </div>
             </div>
         </div>
