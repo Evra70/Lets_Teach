@@ -49,7 +49,7 @@
                         </ol>
                     </div>
                     <hr class="my-3">
-                    <a href="/pesan/{{$pesanan->transaksi_id}}/terima" class="btn btn-success">Terima</a>
+                    <span id="trm"><a href="/pesan/{{$pesanan->transaksi_id}}/terima" class="btn btn-success">Terima</a></span>
                     <input type="hidden" name="transaksi_id" value="{{$pesanan->transaksi_id}}">
                     {{csrf_field()}}
                 </div>
@@ -60,7 +60,7 @@
 @section('script-js')
     <script>
         $(document).ready(function(){
-            setInterval('status()',1000);
+            setInterval('status()',750);
         });
 
         function status() {
@@ -72,7 +72,8 @@
                 data:{transaksi_id:transaksi_id, _token : _token},
                 success:function (result) {
                     if(result[0].versi != 0){
-                        window.location.href="/menu/getPesananList";
+                        clearInterval();
+                        $('#trm').html("<a href='/menu/getPesananList' class='btn btn-danger'>Pesanan Sudah Diambil</a>");
                     }
                 }
             });

@@ -10,7 +10,7 @@ use UxWeb\SweetAlert\SweetAlert;
 class NewOrder extends AbstractWidget
 {
 
-    public $reloadTimeout =7;
+    public $reloadTimeout =3;
 
     protected $config = [];
 

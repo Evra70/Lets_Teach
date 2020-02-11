@@ -40,7 +40,7 @@ class PesanController extends Controller
         $trasaksi->tgl_terima = Date('YmdHis');
         $trasaksi->versi = $trasaksi->versi + 1;
         $trasaksi->save();
-//        return view('addMapelForm',['k-ategoriList' => $kategoriList]);
+      return redirect("/menu/pesananSaya");
     }
 
     public function addPemesananProcess(Request $request)
@@ -79,7 +79,6 @@ class PesanController extends Controller
                 't_user.fullname as teacher_name', 't_transaksi.tgl_terima', 't_transaksi.biaya', 't_transaksi.versi')->first();
         $pesan->tgl_terima = Date("H:i:s, d-m-Y", strtotime($pesan->tgl_terima));
         if ($pesan->versi != 0) {
-            SweetAlert::info("Pesanan Telah Diterima Orang Lain !", "Maaf");
             return [$pesan];
         }
         return [$pesan];
@@ -87,10 +86,17 @@ class PesanController extends Controller
 
     public function pesananSayaDetail()
     {
+        $user = User::find(Auth::user()->user_id);
+        $id = "";
+        if($user->level == "student"){
+            $id="user_id";
+        }elseif ($user->level == "teacher"){
+            $id="teacher_id";
+        }
         $pesanan = DB::table('t_transaksi')
             ->leftJoin('t_user', 't_transaksi.teacher_id', '=', 't_transaksi.user_id')
             ->join('t_mapel', 't_transaksi.mapel_id', '=', 't_mapel.mapel_id')
-            ->where('t_transaksi.user_id',Auth::user()->user_id)
+            ->where("t_transaksi.$id",Auth::user()->user_id)
             ->select('t_transaksi.kode_transaksi', 't_mapel.nama_mapel', 't_transaksi.transaksi_id',
                 't_transaksi.tgl_transaksi', 't_transaksi.lama_sewa', 't_user.fullname as nama_teacher',
                 't_transaksi.biaya', 't_transaksi.deskripsi_transaksi', 't_transaksi.status_pemesanan'
