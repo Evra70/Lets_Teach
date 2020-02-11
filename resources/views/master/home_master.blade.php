@@ -319,7 +319,7 @@
                             method:"POST",
                             data:{select:select, value:value, _token : _token, dependent:dependent},
                             success:function (result) {
-                                console.log(result);
+                                // console.log(result);
                                 $('#'+dependent).html(result);
                             }
                     });

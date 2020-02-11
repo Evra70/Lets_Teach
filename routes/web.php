@@ -57,3 +57,8 @@ Route::post('/menu/addBiayaProcess','BiayaController@addBiayaProcess')->middlewa
 //pemesanan
 Route::get('/pesan/{mapel_id}/form','PesanController@formPemesananById')->middleware('auth:student');
 Route::post('/menu/addPemesananProcess','PesanController@addPemesananProcess')->middleware('auth:student');
+Route::get('/menu/pesananSaya','PesanController@pesananSayaDetail')->middleware('auth:student');
+Route::post('/getStatus','PesanController@getStatus')->middleware('auth:student,teacher');
+Route::get('/menu/getPesananList','PesanController@getPesananList')->middleware('auth:teacher');
+Route::get('/pesan/{transaksi_id}/detail','PesanController@pesananSayaTerimaDetail')->middleware('auth:teacher');
+Route::get('/pesan/{transaksi_id}/terima','PesanController@terimaPesananProcess')->middleware('auth:teacher');

@@ -16,8 +16,6 @@
     <link href="/asset_template/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
     <!-- Argon CSS -->
     <link type="text/css" href="/asset_template/css/argon.css?v=1.0.0" rel="stylesheet">
-
-    @yield('script')
 </head>
 
 <body>
@@ -173,7 +171,7 @@
                 </ul>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="/menu/mapelList">
+                        <a class="nav-link" href="/menu/pesananSaya">
                             <i class="ni ni-bullet-list-67 text-blue"></i> Pemesanan Saya
                         </a>
                     </li>
@@ -192,7 +190,7 @@
                 <h6 class="navbar-heading text-muted">Data Pemesanan</h6>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="/menu/mapelList">
+                        <a class="nav-link" href="/menu/getPesananList">
                             <i class="ni ni-bullet-list-67 text-blue"></i> Terima Kursus
                         </a>
                     </li>
@@ -272,14 +270,20 @@
     </div>
 </div>
 <!-- Argon Scripts -->
+
 <!-- Core -->
+<script src="/asset_sweet_alert/sweetalert.min.js"></script>
+
+@include('sweet::alert')
 <script src="/asset_template/vendor/jquery/dist/jquery.min.js"></script>
+@yield('script-js')
 <script src="/asset_template/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Optional JS -->
 <script src="/asset_template/vendor/chart.js/dist/Chart.min.js"></script>
 <script src="/asset_template/vendor/chart.js/dist/Chart.extension.js"></script>
 <!-- Argon JS -->
 <script src="/asset_template/js/argon.js?v=1.0.0"></script>
+
 </body>
 
 </html>
