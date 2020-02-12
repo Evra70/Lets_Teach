@@ -35,9 +35,9 @@
                         <h3>Let's Teach
                         <p>kesenjangan perekonomian dan sosial di Indonesia sangat tinggi terjadi
                         untuk itu kami buat aplikasi yang  bertujuan untuk mengurangi beban pengangguran.<br>
-                        Lets teach adalah salah satu aplikasi yang dapat mengurangi<br> 
-                        angka kesenjangan perekonomian dan sosial di Indonesia, dimana<br>
-                        di aplikasi ini memberikan kesempatan besar bagi para lulusan <br>
+                        Lets teach adalah salah satu aplikasi yang diharapkan dapat mengurangi
+                        angka kesenjangan perekonomian dan <br>sosial di Indonesia, dimana
+                        di aplikasi ini memberikan kesempatan besar bagi semua orang terutama para lulusan <br>
                         sarjana maupun guru-guru yang belum memiliki job kerja untuk <br>
                         dapat menyalurkan ilmu (mengajar) kepada para murid yang membutuhkan
                         bimbingan dalam belajar</p>
@@ -127,7 +127,7 @@
                                     <img src="/asset/img/testmonial/g3.jpg" alt="">
                                 </div>
                                 <p>
-                                   "Sistem pendidikan yang bijaksana setidaknya akan mengajarkan kita<br> betapa sedikitnya yang belum diketahui oleh manusia, seberapa banyak<br> yang masih harus ia pelajari." 
+                                   "Sistem pendidikan yang bijaksana setidaknya akan mengajarkan kita<br> betapa sedikitnya yang belum diketahui oleh manusia, seberapa banyak<br> yang masih harus ia pelajari."
                                 </p>
                                 <span>Sir John Lubbock</span>
                             </div>
@@ -163,7 +163,7 @@
                                 <h3>Aman Dalam Belajar</h3>
                             </div>
                             <p class="blog_text">
-                               Aman terhadap resiko tindak kejahatan 
+                               Aman terhadap resiko tindak kejahatan
                             </p>
                         </div>
                     </div>
@@ -171,7 +171,7 @@
                 <div class="col-xl-4 col-md-4">
                     <div class="single_latest_blog">
                         <div class="thumb">
-                            <img src="/asset/img/latest_blog/pilihan/nyaman.jpg" alt="">
+                            <img src="/asset/img/latest_blog/pilihan/nyaman.jpg" style="width:302px; height:320px;"alt="">
                         </div>
                         <div class="content_blog">
                             <div class="blog_meta">
@@ -186,7 +186,7 @@
                 <div class="col-xl-4 col-md-4">
                     <div class="single_latest_blog">
                         <div class="thumb">
-                            <img src="/asset/img/latest_blog/pilihan/senang.jpg" alt="">
+                            <img src="/asset/img/latest_blog/pilihan/senang.jpg" style="width:302px; height:320px;alt="">
                         </div>
                         <div class="content_blog">
                             <div class="blog_meta">
@@ -218,15 +218,15 @@
                 <div class="col-xl-4 col-md-4">
                     <div class="single_latest_blog">
                         <div class="thumb">
-                            <img src="/asset/img/latest_blog/pilihan/gur.jpg" alt="">
+                            <img src="/asset/img/latest_blog/pilihan/gur.jpg" style="weidth:295px; height:292px;" alt="">
                         </div>
                         <div class="content_blog">
                             <div class="blog_meta">
                                 <h3>Mengurangi Angka Pengangguran</h3>
                             </div>
                             <p class="blog_text">
-                                Terutama bagi para lulusan sarjana <br>
-                                maupun guru yang belum memiliki job kerja.
+                                Memberikan kesempatan kerja bagi semua orang<br>
+                                yang memiliki kemampuan dalam mengajar
                             </p>
                         </div>
                     </div>
@@ -234,7 +234,7 @@
                 <div class="col-xl-4 col-md-4">
                     <div class="single_latest_blog">
                         <div class="thumb">
-                            <img src="/asset/img/latest_blog/pilihan/Capture.jpg" alt="">
+                            <img src="/asset/img/latest_blog/pilihan/Capture.jpg" style="weidth:295px; height:290px" alt="">
                         </div>
                         <div class="content_blog">
                             <div class="blog_meta">
@@ -250,7 +250,7 @@
                 <div class="col-xl-4 col-md-4">
                     <div class="single_latest_blog">
                         <div class="thumb">
-                            <img src="/asset/img/latest_blog/pilihan/sosial.jpg" alt="">
+                            <img src="/asset/img/latest_blog/pilihan/sosial.jpg" style="weidth:295px; height:290px" alt="">
                         </div>
                         <div class="content_blog">
                             <div class="blog_meta">

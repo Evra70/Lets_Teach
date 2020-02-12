@@ -41,7 +41,7 @@
                         <div class="col-xl-2 col-lg-2">
                             <div class="logo-img">
                                 <a href="index.html">
-                                    <img src="/asset/img/Capture.jpg" alt="">
+                                    <img src="/asset/img/alogo.png" style="width: 158px;height: 52px;" alt="">
                                 </a>
                             </div>
                         </div>
@@ -49,7 +49,7 @@
                             <div class="main-menu  d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a  href="/">Home</a></li>
+                                        <li><a  href="/">Beranda</a></li>
                                         <li><a href="/kursus">Kursus</a></li>
 
                                         <li><a href="/tentang_kami">Tentang Kami</a></li>
@@ -88,52 +88,25 @@
                         <div class="footer_widget">
                             <div class="footer_logo">
                                 <a href="#">
-                                    <img src="/asset/img/logo.png" alt="">
+                                    <img src="/asset/img/alogo.png" style="width:154px; height:56px;"alt="">
                                 </a>
                             </div>
                             <p>
-                                Firmament morning sixth subdue darkness creeping gathered divide our let god moving.
-                                Moving in fourth air night bring upon it beast let you dominion likeness open place day
-                                great.
+                                Memiliki kemampuan dalam mengajar??<br>
+                                Yuk..daftarkan dirimu
                             </p>
-                            <div class="socail_links">
-                                <ul>
-                                    <li>
-                                        <a href="#">
-                                            <i class="ti-facebook"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="ti-twitter-alt"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-instagram"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-youtube-play"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-
                         </div>
                     </div>
-                    <div class="col-xl-2 offset-xl-1 col-md-6 col-lg-3">
+                    <div class="col-xl-2 offset-xl-1 col-md-6 col-lg-3  ">
                         <div class="footer_widget">
                             <h3 class="footer_title">
-                                Courses
+                                kursus
                             </h3>
                             <ul>
-                                <li><a href="#">Wordpress</a></li>
-                                <li><a href="#"> Photoshop</a></li>
-                                <li><a href="#">Illustrator</a></li>
-                                <li><a href="#">Adobe XD</a></li>
-                                <li><a href="#">UI/UX</a></li>
+                                <li><a href="#">Musik</a></li>
+                                <li><a href="#">Bahasa Asing</a></li>
+                                <li><a href="#">Olahraga</a></li>
+                                <li><a href="#">Mata Pelajaran (SD, SMP, SMA, maupun SMK)</a></li>
                             </ul>
 
                         </div>
@@ -141,27 +114,17 @@
                     <div class="col-xl-2 col-md-6 col-lg-2">
                         <div class="footer_widget">
                             <h3 class="footer_title">
-                                Resourches
+                                Alamat
                             </h3>
-                            <ul>
-                                <li><a href="#">Free Adobe XD</a></li>
-                                <li><a href="#">Tutorials</a></li>
-                                <li><a href="#">About</a></li>
-                                <li><a href="#"> About</a></li>
-                                <li><a href="#"> Contact</a></li>
-                            </ul>
+                            <p>
+                                Jalan Palir Raya No.66 - 68, Podorejo, Kec. Ngaliyan,<br>
+                                Kota Semarang, Jawa Tengah 50187
+                            </p>
                         </div>
                     </div>
                     <div class="col-xl-3 col-md-6 col-lg-3">
                         <div class="footer_widget">
-                            <h3 class="footer_title">
-                                Address
-                            </h3>
-                            <p>
-                                200, D-block, Green lane USA <br>
-                                +10 367 467 8934 <br>
-                                edumark@contact.com
-                            </p>
+                            <a href=" " class="boxed_btn login popup-with-form" >Daftar Sebagai Guru</a>
                         </div>
                     </div>
                 </div>
@@ -190,7 +153,7 @@
             <div class="popup_inner">
                 <div class="logo text-center">
                     <a href="#">
-                        <img src="/asset/img/form-logo.png" alt="">
+                        <img src="/asset/img/alogo.png" style="width:154px; 36px;"alt="">
                     </a>
                 </div>
                 <h3>Sign in</h3>
