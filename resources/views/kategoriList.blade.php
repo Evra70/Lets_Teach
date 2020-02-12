@@ -33,7 +33,7 @@
                             <th scope="col">Kode Kategori</th>
                             <th scope="col">Nama Kategori</th>
                             <th scope="col">Active</th>
-                            <th scope="col"></th>
+                            <th scope="col">Aksi</th>
                         </tr>
                         </thead>
                         <tbody>

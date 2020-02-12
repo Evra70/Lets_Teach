@@ -32,8 +32,9 @@
                             <th scope="col">No</th>
                             <th scope="col">Kode Mata Pelajaran</th>
                             <th scope="col">Nama Mata Pelajaran</th>
+                            <th scope="col">Biaya</th>
                             <th scope="col">Active</th>
-                            <th scope="col"></th>
+                            <th scope="col">Aksi</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -43,6 +44,7 @@
                                 <th scope="row">{{$no++}}</th>
                                 <td>{{$mapel->kode_mapel}}</td>
                                 <td>{{$mapel->nama_mapel}}</td>
+                                <td>{{$mapel->biaya}}</td>
                                 <td>{{$mapel->active}}</td>
                                     <td class="text-right">
                                         <div class="dropdown">
@@ -52,7 +54,7 @@
                                             @if(Auth::guard('administrator')->check())
                                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
                                                 <a class="dropdown-item" href="/mapel/{{$mapel->mapel_id}}/delete">Delete</a>
-{{--                                                <a class="dropdown-item" href="/menu/editBarangForm/{{$barang->barang_id}}">Edit</a>--}}
+                                                <a class="dropdown-item" href="/menu/editMapelForm/{{$mapel->mapel_id}}">Edit</a>
                                             </div>
                                             @endif
                                             @if(Auth::guard('student')->check())

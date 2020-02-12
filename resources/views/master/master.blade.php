@@ -126,32 +126,29 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/menu/subMapelList">
                             <i class="ni ni-archive-2 text-blue"></i> Daftar Sub Mata Pelajaran
-<<<<<<< HEAD
-=======
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/menu/addSubMapelForm">
                             <i class="ni ni-archive-2 text-blue"></i> Tambah Sub Mata Pelajaran
->>>>>>> cdaff63b75150e6bad07ea6de8b444b196b1dd9a
                         </a>
                     </li>
                 </ul>
                 <hr class="my-3">
                 <!-- Heading -->
-                <h6 class="navbar-heading text-muted">Data Biaya</h6>
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/menu/biayaList">
-                            <i class="ni ni-archive-2 text-blue"></i> Daftar Biaya
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/menu/addBiayaForm">
-                            <i class="ni ni-archive-2 text-blue"></i    > Tambah Biaya
-                        </a>
-                    </li>
-                </ul>
+{{--                <h6 class="navbar-heading text-muted">Data Biaya</h6>--}}
+{{--                <ul class="navbar-nav">--}}
+{{--                    <li class="nav-item">--}}
+{{--                        <a class="nav-link" href="/menu/biayaList">--}}
+{{--                            <i class="ni ni-archive-2 text-blue"></i> Daftar Biaya--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
+{{--                    <li class="nav-item">--}}
+{{--                        <a class="nav-link" href="/menu/addBiayaForm">--}}
+{{--                            <i class="ni ni-archive-2 text-blue"></i    > Tambah Biaya--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
+{{--                </ul>--}}
             @endif
             @if(Auth::guard('student')->check())
                 <hr class="my-3">
