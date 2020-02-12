@@ -39,7 +39,11 @@
                 <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div class="media align-items-center">
               <span class="avatar avatar-sm rounded-circle">
-                <img alt="Image placeholder" src="/asset_template/img/theme/team-1-800x800.jpg">
+                 @if(Auth::user()->profile_picture == "")
+                      <img src="/asset_template/img/theme/no_image.png">
+                  @else
+                      <img src="/profiles/{{Auth::user()->profile_picture}}">
+                  @endif
               </span>
                     </div>
                 </a>
@@ -88,6 +92,26 @@
                 </li>
             </ul>
             @if(Auth::guard('administrator')->check())
+                <hr class="my-3">
+                <!-- Heading -->
+                <h6 class="navbar-heading text-muted">Data User</h6>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/menu/user/administrator">
+                            <i class="ni ni-bullet-list-67 text-blue"></i> Daftar Administrator
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/menu/user/teacher">
+                            <i class="ni ni-bullet-list-67 text-blue"></i> Daftar Mentor
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/menu/user/student">
+                            <i class="ni ni-bullet-list-67 text-blue"></i> Daftar Murid
+                        </a>
+                    </li>
+                </ul>
                 <hr class="my-3">
                 <!-- Heading -->
                 <h6 class="navbar-heading text-muted">Data Kategori</h6>
@@ -228,9 +252,13 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <div class="media align-items-center">
-                <span class="avatar avatar-sm rounded-circle">
-                  <img alt="Image placeholder" src="/asset_template/img/theme/team-4-800x800.jpg">
-                </span>
+                            <span class="avatar avatar-sm rounded-circle">
+                                @if(Auth::user()->profile_picture == "")
+                                    <img src="/asset_template/img/theme/no_image.png">
+                                @else
+                                    <img src="/profiles/{{Auth::user()->profile_picture}}">
+                                @endif
+                            </span>
                             <div class="media-body ml-2 d-none d-lg-block">
                                 <span class="mb-0 text-sm  font-weight-bold">{{Auth::user()->fullname}}</span>
                             </div>

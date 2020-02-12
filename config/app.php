@@ -176,6 +176,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         UxWeb\SweetAlert\SweetAlertServiceProvider::class,
         Arrilot\Widgets\ServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
     ],
 
@@ -230,7 +231,7 @@ return [
         'Alert' => UxWeb\SweetAlert\SweetAlert::class,
         'Widget' =>Arrilot\Widgets\Facade::class,
         'AsyncWidget' =>Arrilot\Widgets\AsyncFacade::class,
-
+        'Image' => Intervention\Image\Facades\Image::class,
     ],
 
 ];

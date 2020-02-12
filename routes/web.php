@@ -67,3 +67,9 @@ Route::get('/pesan/{transaksi_id}/selesai/teacher','PesanController@selesaiPesan
 Route::get('/cancelAlert','PesanController@cancelAlert')->middleware('auth:teacher');
 Route::get('/menu/buatPesanan','MapelController@mapelList')->middleware('auth:student');
 Route::get('/menu/riwayatList','PesanController@riwayatList')->middleware('auth:student,teacher');
+Route::post('/changeProfile','LoginController@changeProfile')->middleware('auth:administrator,student,teacher');
+Route::get('/profile','LoginController@profileDetail')->middleware('auth:administrator,student,teacher');
+
+//user
+Route::get('/menu/user/{level}','UserController@userList')->middleware('auth:administrator');
+

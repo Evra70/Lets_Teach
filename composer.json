@@ -11,6 +11,7 @@
         "php": "^7.0",
         "arrilot/laravel-widgets": "^3.13",
         "fideloper/proxy": "^4.0",
+        "intervention/image": "^2.5",
         "laravel/framework": "^5.5",
         "laravel/tinker": "^1.0",
         "rackspace/php-opencloud": "dev-master",

@@ -88,7 +88,6 @@
                         <div class="footer_widget">
                             <div class="footer_logo">
                                     <i><b>Let's Teach</b></i>
-                                <a href="#test-form" class="boxed_btn login popup-with-form">Daftar Sebagai Guru</a>
                             </div>
                             <p>
                                 Memiliki kemampuan mengajar??<br>
@@ -133,6 +132,18 @@
                                 <li><a href="#">Olahraga</a></li>
                             </ul>
 
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6 col-lg-3">
+                        <div class="footer_widget">
+                            <h3 class="footer_title">
+                                Alamat
+                            </h3>
+                            <p>
+                                Jalan Palir Raya No.66 - 68, <br>
+                                Podorejo, Kec. Ngaliyan,<br>
+                                Kota Semarang, Jawa Tengah 50187
+                            </p>
                         </div>
                     </div>
                     <div class="col-xl-3 col-md-6 col-lg-3">
@@ -254,6 +265,66 @@
                             <button type="submit" class="boxed_btn_orange">Sign Up</button>
                         </div>
                     </div>
+            </div>
+        </div>
+    </form>
+
+    <form id="test-form3" class="white-popup-block mfp-hide" action="/proses_registrasi_guru" method="post">
+        <div class="popup_box ">
+            <div class="popup_inner">
+                <div class="logo text-center">
+                    <a href="#">
+                        <img src="/asset/img/form-logo.png" alt="">
+                    </a>
+                </div>
+                <h3>Registration</h3>
+                {{csrf_field()}}
+                <div class="row">
+                    <div class="col-xl-12 col-md-12">
+                        <input type="text" placeholder="Enter fullname" autocomplete="off" required name="fullname">
+                    </div>
+                    <div class="col-xl-12 col-md-12">
+                        <input type="email" placeholder="Enter email" autocomplete="off" required name="email">
+                    </div>
+                    <div class="col-xl-12 col-md-12">
+                        <input type="text" placeholder="Enter username" autocomplete="off" required name="username">
+                    </div>
+                    <div class="col-xl-12 col-md-12">
+                        <input type="password" placeholder="Password" required name="password">
+                    </div>
+                    <div class="col-xl-12 col-md-12">
+                        <input type="Password" placeholder="Confirm password" required name="confirm_password">
+                    </div>
+                    <div class="col-xl-12 col-md-12">
+                        <select name="province_id" style="margin-bottom: 20px;" required
+                                class="form-control form-control-alternative dynamic"
+                                id="province" data-dependent="regency">
+                            <option value="">--Pilih Provinsi--</option>
+                            @foreach($provinceList as $province)
+                                <option value="{{$province->id}}">{{$province->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col-xl-12 col-md-12">
+                        <select name="regency_id" style="margin-bottom: 20px;" required
+                                class="form-control form-control-alternative dynamic"
+                                id="regency" data-dependent="district">
+                            <option value="">--Pilih Kabupaten/Kota--</option>
+
+                        </select>
+                    </div>
+                    <div class="col-xl-12 col-md-12">
+                        <select name="district_id" style="margin-bottom: 20px;" required
+                                class="form-control form-control-alternative"
+                                id="district">
+                            <option value="">--Pilih Kecamatan--</option>
+
+                        </select>
+                    </div>
+                    <div class="col-xl-12">
+                        <button type="submit" class="boxed_btn_orange">Sign Up</button>
+                    </div>
+                </div>
             </div>
         </div>
     </form>
