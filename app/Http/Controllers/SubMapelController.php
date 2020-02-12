@@ -62,11 +62,36 @@ class SubMapelController extends Controller
         }
     }
 
-    public function editSubMapel($sub_sub_mapel_id)
+    public function editSubMapelForm($id)
     {
-        $subMapel=SubMapel::find($sub_sub_mapel_id);
-        $subMapel->delete();
-        return(redirect('/menu/subMapelList'));
+        $subMapel = SubMapel::find($id);
+        $mapel = Mapel::all();
+        return view('editSubMapelForm',['subMapel' => $subMapel,'mapelList' => $mapel]);
+    }
+
+    public function editSubMapelProcess(Request $request)
+    {
+        $this->validate($request,[
+            'kode_sub_mapel' => 'required|min:2',
+            'nama_sub_mapel' => 'required|min:3',
+            'active' => 'required'
+        ]);
+
+        $subMapelId = $request->sub_mapel_id;
+        $mapelId = $request->mapel_id;
+        $kodeSubMapel = $request->kode_sub_mapel;
+        $namaSubMapel = $request->nama_sub_mapel;
+        $status = $request->active;
+
+        $SubMapel = SubMapel::find($subMapelId);
+        $SubMapel->kode_sub_mapel = $kodeSubMapel;
+        $SubMapel->nama_sub_mapel = $namaSubMapel;
+        $SubMapel->mapel_id = $mapelId;
+        $SubMapel->active = $status;
+        $SubMapel->save();
+
+
+        return redirect('/menu/subMapelList');
     }
 
 }

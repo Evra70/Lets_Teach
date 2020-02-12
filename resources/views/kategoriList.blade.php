@@ -52,7 +52,7 @@
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
                                                 <a class="dropdown-item"  href="/kategori/{{$kategori->kategori_id}}/delete">Delete</a>
-                                                <a class="dropdown-item" href="/menu/editBarangForm/{{$kategori->kategori_id}}">Edit</a>
+                                                <a class="dropdown-item" href="/menu/editKategoriForm/{{$kategori->kategori_id}}">Edit</a>
                                             </div>
                                         </div>
                                     </td>

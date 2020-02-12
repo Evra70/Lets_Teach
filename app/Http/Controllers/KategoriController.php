@@ -50,37 +50,32 @@ class KategoriController extends Controller
         }
     }
 
-    public function editMapelForm($kategori_id)
+    public function editKategoriForm($kategori_id)
     {
         $kategoriList=Kategori::find($kategori_id);
-        return view('editMapelForm',['kategori' => $kategoriList]);
+        return view('editKategoriForm',['kategori' => $kategoriList]);
     }
 
-    public function editMapelProcess(Request $request)
+    public function editKategoriProcess(Request $request)
     {
         $this->validate($request,[
-            'kode_mapel' => 'required|min:2',
-            'kategori_id' => 'required',
-            'nama_mapel' => 'required|min:3',
-            'biaya' => 'required|numeric',
+            'kode_kategori' => 'required|min:2',
+            'nama_kategori' => 'required|min:3',
             'active' => 'required'
         ]);
 
-        $mapel_id = $request->mapel_id;
-        $kodeMapel = $request->kode_mapel;
-        $namaMapel = $request->nama_mapel;
         $kategoriId = $request->kategori_id;
-        $biaya_mapel = $request->biaya;
+        $kodeKategori = $request->kode_kategori;
+        $namaKategori = $request->nama_kategori;
         $status = $request->active;
 
-        $mapel = Kategori::find($mapel_id);
-        $mapel->kode_mapel = $kodeMapel;
-        $mapel->kategori_id = $kategoriId;
-        $mapel->nama_mapel = $namaMapel;
-        $mapel->active = $status;
-        $mapel->save();
+        $kategori = Kategori::find($kategoriId);
+        $kategori->kode_kategori = $kodeKategori;
+        $kategori->nama_kategori = $namaKategori;
+        $kategori->active = $status;
+        $kategori->save();
 
 
-        return redirect('/menu/mapelList');
+        return redirect('/menu/kategoriList');
     }
 }
