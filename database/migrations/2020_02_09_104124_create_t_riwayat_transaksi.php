@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTTransaksi extends Migration
+class CreateTRiwayatTransaksi extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class CreateTTransaksi extends Migration
      */
     public function up()
     {
-        Schema::create('t_transaksi', function (Blueprint $table) {
-            $table->bigIncrements('transaksi_id');
+        Schema::create('t_riwayat_transaksi', function (Blueprint $table) {
+            $table->bigIncrements('riwayat_id');
             $table->string('kode_transaksi',50)->unique();
             $table->integer('user_id');
             $table->integer('mapel_id');
@@ -24,8 +24,6 @@ class CreateTTransaksi extends Migration
             $table->integer('teacher_id')->default(-1);
             $table->text('deskripsi_transaksi');
             $table->integer('biaya');
-            $table->string('status_pemesanan',1);
-            $table->integer('versi')->default(0);
             //$table->timestamps();
         });
     }
@@ -37,6 +35,6 @@ class CreateTTransaksi extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('t_transaksi');
+        Schema::dropIfExists('t_riwayat_transaksi');
     }
 }
