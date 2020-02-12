@@ -28,6 +28,7 @@
                     <div class="row">
                         <input type="hidden" name="transaksi_id" value="{{$pesanan->transaksi_id}}">
                         <input type="hidden" name="login_id" value="{{Auth::user()->user_id}}">
+                        <input type="hidden" name="level" value="{{Auth::user()->level}}">
                         {{csrf_field()}}
                         <h4 style="margin-left:20px;">Kode Transaksi : {{$pesanan->kode_transaksi}}</h4>
                     </div>
@@ -61,12 +62,19 @@
                     </div>
                     <div class="row">
                         <h4 style="margin-left:20px;">Status Pemesanan : <span id="status"></span>
-                            @if(Auth::guard("student")->check())<a style="margin-left: 40px;" href="/pesan/{{$pesanan->transaksi_id}}/batal/user" class="btn btn-danger">Cancel</a>
-                            @else<a style="margin-left: 40px;" href="/pesan/{{$pesanan->transaksi_id}}/batal/teacher" class="btn btn-danger">Cancel</a>
-                            @endif
                         </h4>
                     </div>
                     <hr class="my-3">
+                    <div class="row">
+                        <h4 style="margin-left:20px;"> Aksi :
+                            @if(Auth::guard("student")->check())
+                                <a style="margin-left: 40px;" href="/pesan/{{$pesanan->transaksi_id}}/batal/user" class="btn btn-danger">Cancel Pesanan</a>
+                            @else
+                                <a style="margin-left: 40px;" href="/pesan/{{$pesanan->transaksi_id}}/batal/teacher" class="btn btn-danger">Cancel Pesanan</a>
+                                <span id="btn_stat"></span>
+                            @endif
+                        </h4>
+                    </div>
                     <div id="xchat">
                         {{\Arrilot\Widgets\AsyncFacade::run('chat_box',[],$pesanan->transaksi_id,Auth::user()->user_id)}}
 
@@ -85,7 +93,7 @@
         $(document).ready(function(){
             $(".pengajar").hide();
             $("#xchat").hide();
-
+            $('#btn_stat').hide();
             $("#btn_text").click(function () {
                 var _token = $('input[name="_token"]').val();
                 var transaksi_id = $('input[name="transaksi_id"]').val();
@@ -111,34 +119,47 @@
         function status() {
             var _token = $('input[name="_token"]').val();
             var transaksi_id = $('input[name="transaksi_id"]').val();
+            var level = $('input[name="level"]').val();
             $.ajax({
                 url:"/getStatus",
                 method:"POST",
                 data:{transaksi_id:transaksi_id, _token : _token},
                 success:function (result) {
-                   var r = result[0];
-
-                   ubahStatus(r);
-                   ubahGuru(r);
-            // {"status_pemesanan":"N","teacher_id":-1,"teacher_name":null}
+                    if(result[0] != null){
+                        var r = result[0];
+                        ubahStatus(r,transaksi_id);
+                        ubahGuru(r);
+                    }else{
+                        if(level == "student"){
+                            window.location.href="/menu/buatPesanan";
+                        } else {
+                            window.location.href="/cancelAlert";
+                        }
+                    }
 
                 }
             });
         }
 
-        function ubahStatus(r) {
+        function ubahStatus(r,l) {
             var status="";
             var btn="";
             if(r.status_pemesanan == 'N'){
                 status = "Mencari Pengajar";
+                $('#xchat').hide();
                 btn = "info";
             }else if (r.status_pemesanan == 'P'){
                 status = "Pengajar Ditemukan";
                 btn = "success";
                 $('#xchat').show();
+                $('#btn_stat').show();
+                $('#btn_stat').html("<a style='margin-left: 100px;' href='/pesan/"+l+"/sampai/teacher' class='btn btn-info'>Sampai Tujuan</a>");
             }else if (r.status_pemesanan == 'Y'){
                 status = "Pengajar Telah Sampai";
                 btn = "info";
+                $('#xchat').show();
+                $('#btn_stat').show();
+                $('#btn_stat').html("<a style='margin-left: 100px;' href='/pesan/"+l+"/selesai/teacher' class='btn btn-info'>Kursus Selesai</a>");
             }
             var output ="<li class='btn btn-"+btn+"'>"+status+"</li>";
             $('#status').html(output);

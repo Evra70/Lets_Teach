@@ -49,11 +49,6 @@ Route::get('/menu/addSubMapelForm','SubMapelController@addSubMapelForm')->middle
 Route::post('/menu/addSubMapleProcess','SubMapelController@addSubMapleProcess')->middleware('auth:administrator');
 //Route::get('/subMapel/{sub_mapel_id}/delete','SubMapelController@delete');
 
-//biaya
-Route::get('/menu/biayaList','BiayaController@biayaList')->middleware('auth:administrator');
-Route::get('/menu/addBiayaForm','BiayaController@addBiayaForm')->middleware('auth:administrator');
-Route::post('/menu/addBiayaProcess','BiayaController@addBiayaProcess')->middleware('auth:administrator');
-
 //pemesanan
 Route::get('/pesan/{mapel_id}/form','PesanController@formPemesananById')->middleware('auth:student');
 Route::post('/menu/addPemesananProcess','PesanController@addPemesananProcess')->middleware('auth:student');
@@ -63,3 +58,9 @@ Route::post('/addChat','PesanController@addChat')->middleware('auth:student,teac
 Route::get('/menu/getPesananList','PesanController@getPesananList')->middleware('auth:teacher');
 Route::get('/pesan/{transaksi_id}/detail','PesanController@pesananSayaTerimaDetail')->middleware('auth:teacher');
 Route::get('/pesan/{transaksi_id}/terima','PesanController@terimaPesananProcess')->middleware('auth:teacher');
+Route::get('/pesan/{transaksi_id}/batal/user','PesanController@cancelPesananUser')->middleware('auth:student');
+Route::get('/pesan/{transaksi_id}/batal/teacher','PesanController@cancelPesananTecher')->middleware('auth:teacher');
+Route::get('/pesan/{transaksi_id}/sampai/teacher','PesanController@sampaiPesananTecher')->middleware('auth:teacher');
+Route::get('/pesan/{transaksi_id}/selesai/teacher','PesanController@selesaiPesananTecher')->middleware('auth:teacher');
+Route::get('/cancelAlert','PesanController@cancelAlert')->middleware('auth:teacher');
+Route::get('/menu/buatPesanan','MapelController@mapelList')->middleware('auth:student');

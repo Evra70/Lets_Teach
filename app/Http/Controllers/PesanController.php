@@ -6,6 +6,7 @@ use App\Biaya;
 use App\Chat;
 use App\Kategori;
 use App\Mapel;
+use App\Riwayat;
 use App\SubMapel;
 use App\Transaksi;
 use App\User;
@@ -25,6 +26,61 @@ class PesanController extends Controller
        $mapel = Mapel::find($mapel_id);
         $subMapelList = SubMapel::where('mapel_id', $mapel_id)->where('active', 'Y')->get();
         return view('formPemesananById', ['mapel' => $mapel, "subMapelList" => $subMapelList]);
+    }
+
+    public function cancelPesananUser($transaksi_id)
+    {
+       $transaksi =Transaksi::find($transaksi_id);
+       $chat = DB::select("DELETE FROM t_chat WHERE send_id ='$transaksi->user_id' OR get_id ='$transaksi->user_id'");
+       $transaksi->delete();
+       SweetAlert::info("Pesanan Berhasil Dibatalkan !","Berhasil");
+       return redirect("/menu/mapelList");
+    }
+
+    public function cancelAlert()
+    {
+        SweetAlert::info("Pesanan Telah Dibatalkan !","Maaf");
+        return redirect("/menu/getPesananList");
+    }
+
+    public function sampaiPesananTecher($transaksi_id)
+    {
+        $transaksi =Transaksi::find($transaksi_id);
+        $transaksi->status_pemesanan = "Y";
+        $transaksi->save();
+        return redirect()->back();
+    }
+
+    public function selesaiPesananTecher($transaksi_id)
+    {
+        $transaksi =Transaksi::find($transaksi_id);
+        $riwayat = new Riwayat();
+        $riwayat->kode_transaksi = $transaksi->kode_transaksi;
+        $riwayat->user_id = $transaksi->user_id;
+        $riwayat->mapel_id = $transaksi->mapel_id;
+        $riwayat->tgl_transaksi = $transaksi->tgl_transaksi;
+        $riwayat->tgl_terima = $transaksi->tgl_terima;
+        $riwayat->lama_sewa = $transaksi->lama_sewa;
+        $riwayat->teacher_id = $transaksi->teacher_id;
+        $riwayat->deskripsi_transaksi = $transaksi->deskripsi_transaksi;
+        $riwayat->biaya = $transaksi->biaya;
+        $riwayat->save();
+        $transaksi->delete();
+        DB::select("DELETE FROM t_chat WHERE send_id ='$transaksi->user_id' OR get_id ='$transaksi->user_id'");
+        return redirect("/menu/getPesananList");
+    }
+
+    public function cancelPesananTecher($transaksi_id)
+    {
+        $transaksi =Transaksi::find($transaksi_id);
+        $chat = DB::select("DELETE FROM t_chat WHERE send_id ='$transaksi->teacher_id' OR get_id ='$transaksi->teacher_id'");
+        $transaksi->tgl_terima = "00000000000000";
+        $transaksi->teacher_id = -1;
+        $transaksi->status_pemesanan = "N";
+        $transaksi->versi = 0;
+        $transaksi->save();
+        SweetAlert::info("Pesanan Berhasil Dibatalkan !","Berhasil");
+        return redirect("/menu/getPesananList");
     }
 
 
@@ -93,9 +149,11 @@ class PesanController extends Controller
             ->where('t_transaksi.transaksi_id', $request->transaksi_id)
             ->select('t_transaksi.status_pemesanan', 't_transaksi.teacher_id',
                 't_user.fullname as teacher_name', 't_transaksi.tgl_terima', 't_transaksi.biaya', 't_transaksi.versi')->first();
-        $pesan->tgl_terima = Date("H:i:s, d-m-Y", strtotime($pesan->tgl_terima));
-        if ($pesan->versi != 0) {
-            return [$pesan];
+        if($pesan != null){
+            $pesan->tgl_terima = Date("H:i:s, d-m-Y", strtotime($pesan->tgl_terima));
+            if ($pesan->versi != 0) {
+                return [$pesan];
+            }
         }
         return [$pesan];
     }
@@ -117,7 +175,10 @@ class PesanController extends Controller
                 't_transaksi.tgl_transaksi', 't_transaksi.lama_sewa', 't_user.fullname as nama_teacher',
                 't_transaksi.biaya', 't_transaksi.deskripsi_transaksi', 't_transaksi.status_pemesanan'
             )->first();
-        $pesanan->deskripsi_transaksi = explode(", ", $pesanan->deskripsi_transaksi);
+        if($pesanan != null){
+            $pesanan->deskripsi_transaksi = explode(", ", $pesanan->deskripsi_transaksi);
+        }
+
         return view('pesananSayaDetail', ["pesanan" => $pesanan]);
     }
 
