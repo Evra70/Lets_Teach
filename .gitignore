@@ -5,6 +5,7 @@
 /vendor
 /routes/web.php
 .env.backup
+.env
 .phpunit.result.cache
 Homestead.json
 Homestead.yaml

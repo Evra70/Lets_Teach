@@ -160,6 +160,7 @@ class PesanController extends Controller
 
     public function pesananSayaDetail()
     {
+        $cek = DB::table("t_transaksi")->where("")
         $user = User::find(Auth::user()->user_id);
         $id = "";
         if($user->level == "student"){
