@@ -64,3 +64,4 @@ Route::get('/pesan/{transaksi_id}/sampai/teacher','PesanController@sampaiPesanan
 Route::get('/pesan/{transaksi_id}/selesai/teacher','PesanController@selesaiPesananTecher')->middleware('auth:teacher');
 Route::get('/cancelAlert','PesanController@cancelAlert')->middleware('auth:teacher');
 Route::get('/menu/buatPesanan','MapelController@mapelList')->middleware('auth:student');
+Route::get('/menu/riwayatList','PesanController@riwayatList')->middleware('auth:student,teacher');

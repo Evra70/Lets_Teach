@@ -160,27 +160,34 @@ class PesanController extends Controller
 
     public function pesananSayaDetail()
     {
-        $cek = DB::table("t_transaksi")->where("")
         $user = User::find(Auth::user()->user_id);
         $id = "";
-        if($user->level == "student"){
+        $level =$user->level;
+        if($level == "student"){
             $id="user_id";
-        }elseif ($user->level == "teacher"){
+        }elseif ($level == "teacher"){
             $id="teacher_id";
         }
-        $pesanan = DB::table('t_transaksi')
-            ->leftJoin('t_user', 't_transaksi.teacher_id', '=', 't_transaksi.user_id')
-            ->join('t_mapel', 't_transaksi.mapel_id', '=', 't_mapel.mapel_id')
-            ->where("t_transaksi.$id",Auth::user()->user_id)
-            ->select('t_transaksi.kode_transaksi', 't_mapel.nama_mapel', 't_transaksi.transaksi_id',
-                't_transaksi.tgl_transaksi', 't_transaksi.lama_sewa', 't_user.fullname as nama_teacher',
-                't_transaksi.biaya', 't_transaksi.deskripsi_transaksi', 't_transaksi.status_pemesanan'
-            )->first();
-        if($pesanan != null){
-            $pesanan->deskripsi_transaksi = explode(", ", $pesanan->deskripsi_transaksi);
+        $cek = DB::table("t_transaksi")->where("user_id",$id)->orWhere("teacher_id",$id)->first();
+        if($cek){
+            $pesanan = DB::table('t_transaksi')
+                ->leftJoin('t_user', 't_transaksi.teacher_id', '=', 't_transaksi.user_id')
+                ->join('t_mapel', 't_transaksi.mapel_id', '=', 't_mapel.mapel_id')
+                ->where("t_transaksi.$id",Auth::user()->user_id)
+                ->select('t_transaksi.kode_transaksi', 't_mapel.nama_mapel', 't_transaksi.transaksi_id',
+                    't_transaksi.tgl_transaksi', 't_transaksi.lama_sewa', 't_user.fullname as nama_teacher',
+                    't_transaksi.biaya', 't_transaksi.deskripsi_transaksi', 't_transaksi.status_pemesanan'
+                )->first();
+            if($pesanan != null){
+                $pesanan->deskripsi_transaksi = explode(", ", $pesanan->deskripsi_transaksi);
+            }
+
+            return view('pesananSayaDetail', ["pesanan" => $pesanan]);
+        }else{
+            SweetAlert::info("Tidak ada Aktivitas !","Maaf");
+            return redirect("/menu/mapelList");
         }
 
-        return view('pesananSayaDetail', ["pesanan" => $pesanan]);
     }
 
     public function pesananSayaTerimaDetail()
@@ -200,5 +207,23 @@ class PesanController extends Controller
     public function getPesananList()
     {
         return view('getPesananList');
+    }
+
+    public function riwayatList()
+    {
+        $user = User::find(Auth::user()->user_id);
+        $id = $user->user_id;
+        $level =$user->level;
+        $riwayatList=[];
+        $query ="";
+        if($level == "student"){
+            $query="INNER JOIN t_user B ON A.teacher_id = B.user_id WHERE A.user_id= '$id'";
+        }elseif ($level == "teacher"){
+            $query="INNER JOIN t_user B ON A.user_id = B.user_id WHERE A.user_id= '$id'";
+        }
+        $riwayatList = DB::select("SELECT A.*,B.fullname FROM t_riwayat_transaksi A
+                                            $query");
+
+        return view('riwayatList',["riwayatList"=>$riwayatList]);
     }
 }
