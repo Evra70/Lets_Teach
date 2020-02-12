@@ -60,7 +60,11 @@
                         </ul>
                     </div>
                     <div class="row">
-                        <h4 style="margin-left:20px;">Status Pemesanan : <span id="status"></span></h4>
+                        <h4 style="margin-left:20px;">Status Pemesanan : <span id="status"></span>
+                            @if(Auth::guard("student")->check())<a style="margin-left: 40px;" href="/pesan/{{$pesanan->transaksi_id}}/batal/user" class="btn btn-danger">Cancel</a>
+                            @else<a style="margin-left: 40px;" href="/pesan/{{$pesanan->transaksi_id}}/batal/teacher" class="btn btn-danger">Cancel</a>
+                            @endif
+                        </h4>
                     </div>
                     <hr class="my-3">
                     <div id="xchat">
