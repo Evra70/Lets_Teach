@@ -41,7 +41,7 @@
                         <div class="col-xl-2 col-lg-2">
                             <div class="logo-img">
                                 <a href="index.html">
-                                    <img src="/asset/img/Capture.jpg" alt="">
+                                    <img src="/asset/img/loogoo.png" alt="">
                                 </a>
                             </div>
                         </div>
@@ -87,14 +87,12 @@
                     <div class="col-xl-4 col-md-6 col-lg-4">
                         <div class="footer_widget">
                             <div class="footer_logo">
-                                <a href="#">
-                                    <img src="/asset/img/logo.png" alt="">
-                                </a>
+                                    <i><b>Let's Teach</b></i>
+                                <a href="#test-form" class="boxed_btn login popup-with-form">Daftar Sebagai Guru</a>
                             </div>
                             <p>
-                                Firmament morning sixth subdue darkness creeping gathered divide our let god moving.
-                                Moving in fourth air night bring upon it beast let you dominion likeness open place day
-                                great.
+                                Memiliki kemampuan mengajar??<br>
+                                Ayo! daftarkan diri anda sebagai guru Lets Teach.
                             </p>
                             <div class="socail_links">
                                 <ul>
@@ -126,41 +124,26 @@
                     <div class="col-xl-2 offset-xl-1 col-md-6 col-lg-3">
                         <div class="footer_widget">
                             <h3 class="footer_title">
-                                Courses
+                                Kursus
                             </h3>
                             <ul>
-                                <li><a href="#">Wordpress</a></li>
-                                <li><a href="#"> Photoshop</a></li>
-                                <li><a href="#">Illustrator</a></li>
-                                <li><a href="#">Adobe XD</a></li>
-                                <li><a href="#">UI/UX</a></li>
+                                <li><a href="#">Musik</a></li>
+                                <li><a href="#">Bahasa Asing</a></li>
+                                <li><a href="#">Pelajaran SD, SMP, SMA, ataupun SMK</a></li>
+                                <li><a href="#">Olahraga</a></li>
                             </ul>
 
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-md-6 col-lg-2">
-                        <div class="footer_widget">
-                            <h3 class="footer_title">
-                                Resourches
-                            </h3>
-                            <ul>
-                                <li><a href="#">Free Adobe XD</a></li>
-                                <li><a href="#">Tutorials</a></li>
-                                <li><a href="#">About</a></li>
-                                <li><a href="#"> About</a></li>
-                                <li><a href="#"> Contact</a></li>
-                            </ul>
                         </div>
                     </div>
                     <div class="col-xl-3 col-md-6 col-lg-3">
                         <div class="footer_widget">
                             <h3 class="footer_title">
-                                Address
+                                Alamat
                             </h3>
                             <p>
-                                200, D-block, Green lane USA <br>
-                                +10 367 467 8934 <br>
-                                edumark@contact.com
+                                Jalan Palir Raya No.66 - 68, <br>
+                                Podorejo, Kec. Ngaliyan,<br>
+                                Kota Semarang, Jawa Tengah 50187
                             </p>
                         </div>
                     </div>

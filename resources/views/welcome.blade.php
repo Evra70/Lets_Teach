@@ -171,7 +171,7 @@
                 <div class="col-xl-4 col-md-4">
                     <div class="single_latest_blog">
                         <div class="thumb">
-                            <img src="/asset/img/latest_blog/pilihan/nyaman.jpg" alt="">
+                            <img src="/asset/img/latest_blog/pilihan/nnyaman.jpg" alt="">
                         </div>
                         <div class="content_blog">
                             <div class="blog_meta">
@@ -186,7 +186,7 @@
                 <div class="col-xl-4 col-md-4">
                     <div class="single_latest_blog">
                         <div class="thumb">
-                            <img src="/asset/img/latest_blog/pilihan/senang.jpg" alt="">
+                            <img src="/asset/img/latest_blog/pilihan/ssenang.jpg" alt="">
                         </div>
                         <div class="content_blog">
                             <div class="blog_meta">
@@ -234,7 +234,7 @@
                 <div class="col-xl-4 col-md-4">
                     <div class="single_latest_blog">
                         <div class="thumb">
-                            <img src="/asset/img/latest_blog/pilihan/Capture.jpg" alt="">
+                            <img src="/asset/img/latest_blog/pilihan/mutu.jpg" alt="">
                         </div>
                         <div class="content_blog">
                             <div class="blog_meta">
@@ -250,7 +250,7 @@
                 <div class="col-xl-4 col-md-4">
                     <div class="single_latest_blog">
                         <div class="thumb">
-                            <img src="/asset/img/latest_blog/pilihan/sosial.jpg" alt="">
+                            <img src="/asset/img/latest_blog/pilihan/ssosial.jpg" alt="">
                         </div>
                         <div class="content_blog">
                             <div class="blog_meta">

@@ -33,7 +33,7 @@
                 <div class="col-xl-12">
                     <div class="section_title text-center mb-100">
                         <h3>Alaska DE-VO??</h3>
-                        <p>Alaska DE-VO merupakan team berasal dari SMK Bagimu Negeriku, Alaska diambil dari singkatan kata "Alas Karet", alasan dinamakan Alas Karet karena letak dari sekolah SMK Bagimu Negeriku berada di tengah-tengah pemungkiman perkebunan karet, sehingga muncullah kata "Alaska". Aplikasi ini di rencanakan dan di kerjakan oleh team Alaska DE-VO. Melihat latar belakang di buatnya aplikasi ini yaitu dengan meningkatnya angka pengangguran dan menurunnya mutu pendidikan di Indonesia, Sehingga di buatlah aplikasi Lets Teach yang diharapkan dapat mengurangi angka pengangguran dan meningkatkan mutu pendidikan.
+                        <p>Alaska DE-VO merupakan kelompok berasal dari SMK Bagimu Negeriku, Alaska diambil dari singkatan kata "Alas Karet", alasan dinamakan Alas Karet karena letak dari sekolah SMK Bagimu Negeriku berada di tengah-tengah pemungkiman perkebunan karet, sehingga muncullah kata "Alaska". Aplikasi ini di rencanakan dan di kerjakan oleh kelompok Alaska DE-VO. Melihat latar belakang di buatnya aplikasi ini yaitu dengan meningkatnya angka pengangguran dan menurunnya mutu pendidikan di Indonesia, sehingga di buatlah aplikasi Lets Teach yang diharapkan dapat mengurangi angka pengangguran dan meningkatkan mutu pendidikan.
                         </p>
                     </div>
                 </div>
