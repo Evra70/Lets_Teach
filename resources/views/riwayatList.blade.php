@@ -23,7 +23,7 @@
         <div class="col">
             <div class="card shadow">
                 <div class="card-header border-0">
-                    <h3 class="mb-0">Table Mata Pelajaran</h3>
+                    <h3 class="mb-0">Table Riwayat</h3>
                 </div>
                 <div class="table-responsive">
                     <table class="table align-items-center table-flush">
@@ -45,10 +45,10 @@
                                 <th scope="row">{{$no++}}</th>
                                 <td>{{$riwayat->kode_transaksi}}</td>
                                 <td>{{$riwayat->fullname}}</td>
-                                <td>{{Date("H:i:s, d-m-Y",strtotime($riwayat->tgl_transaksi)}}</td>
-                                <td>{{Date("H:i:s, d-m-Y",strtotime($riwayat->tgl_terima)}}</td>
+                                <td>{{Date("H:i:s, d-m-Y",strtotime($riwayat->tgl_transaksi))}}</td>
+                                <td>{{Date("H:i:s, d-m-Y",strtotime($riwayat->tgl_terima))}}</td>
                                 <td>{{$riwayat->lama_sewa}} Jam</td>
-                                <td>{{number_format($riwayat->biaya,2,",",".")}}</td>
+                                <td>Rp. {{number_format($riwayat->biaya,2,",",".")}}</td>
                             </tr>
                     @endforeach
                         </tbody>

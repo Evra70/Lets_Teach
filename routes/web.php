@@ -24,6 +24,7 @@ Route::get('/student', "LoginController@home")->middleware('auth:student');
 Route::get('/', 'MenuController@index')->middleware('guest');
 
 Route::post('/dynamicDependent', 'MenuController@dynamicDependent')->middleware('guest');
+Route::post('/getSubMapelList', 'PesanController@getMapelDynamic')->middleware('auth:student');
 
 
 Route::get('/kursus', 'MenuController@kursus')->middleware('guest');
@@ -51,6 +52,7 @@ Route::post('/menu/addSubMapleProcess','SubMapelController@addSubMapleProcess')-
 
 //pemesanan
 Route::get('/pesan/{mapel_id}/form','PesanController@formPemesananById')->middleware('auth:student');
+Route::get('/menu/addPesananForm','PesanController@addPesananForm')->middleware('auth:student');
 Route::post('/menu/addPemesananProcess','PesanController@addPemesananProcess')->middleware('auth:student');
 Route::get('/menu/pesananSaya','PesanController@pesananSayaDetail')->middleware('auth:student,teacher');
 Route::post('/getStatus','PesanController@getStatus')->middleware('auth:student,teacher');

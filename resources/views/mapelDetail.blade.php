@@ -44,7 +44,9 @@
                     </div>
                     <hr class="my-3">
                     <div class="row">
+                        @if(count($transaksi) == 0)
                         <a href="/pesan/{{$mapel->mapel_id}}/form" style="margin-left: 50%;" class="btn btn-success">Pesan</a>
+                        @endif
                     </div>
                 </div>
             </div>

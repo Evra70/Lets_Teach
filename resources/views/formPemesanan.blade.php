@@ -29,24 +29,34 @@
                         <div class="pl-lg-4">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <div class="form-group">
+                                    <div class="form-group  {{ $errors->has('mapel_id') ? ' has-error' : '' }}">
                                         <label class="form-control-label" for="input-email">Nama Mata Pelajaran</label>
-                                        <input type="text" id="input-fullname" autocomplete="off" class="form-control form-control-alternative" readonly value="{{$mapel->nama_mapel}}">
-                                        <input type="hidden" id="input-fullname" class="form-control form-control-alternative" value="{{$mapel->mapel_id}}" name="mapel_id">
+                                        <select class="form-control form-control-alternative" id="change" name="mapel_id">
+                                            <option value="">--Pilih Mapel--</option>
+                                            @foreach($mapelList as $mapel)
+                                                <option value="{{$mapel->mapel_id}}">{{$mapel->nama_mapel}}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
+                                    @if ($errors->has('mapel_id'))
+                                        <span class="help-block" style="color:red;margin-bottom: 5px;margin-top: -10px;">
+                                        <strong>{{ $errors->first('mapel_id') }}</strong>
+                                    </span>
+                                    @endif
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <div class="form-group {{ $errors->has('sub_mapel') ? ' has-error' : '' }}">
+                                    <div class="form-group {{ $errors->has('sub_mapel_list') ? ' has-error' : '' }}">
                                         <label class="form-control-label" for="input-email">Sub Mata Pelajaran</label><br>
-                                            @foreach($subMapelList as $subMapel)
-                                                <input type="checkbox" name="sub_mapel_list[]" value="{{$subMapel->nama_sub_mapel}}">{{$subMapel->nama_sub_mapel}}<br>
-                                            @endforeach
+                                           <div id="sub_mapel">
+                                               --Pilih Mapel Terlebih Dahulu--
+{{--                                                <input type="checkbox" name="sub_mapel_list[]" value="{{$subMapel->nama_sub_mapel}}">{{$subMapel->nama_sub_mapel}}<br>--}}
+                                           </div>
                                     </div>
-                                    @if ($errors->has('sub_mapel'))
+                                    @if ($errors->has('sub_mapel_list'))
                                         <span class="help-block" style="color:red;margin-bottom: 5px;margin-top: -10px;">
-                                        <strong>{{ $errors->first('sub_mapel') }}</strong>
+                                        <strong>{{ $errors->first('sub_mapel_list') }}</strong>
                                     </span>
                                     @endif
                                 </div>
@@ -76,4 +86,25 @@
             </div>
         </div>
     </div>
+@endsection
+@section('script-js')
+    <script>
+        $(document).ready(function () {
+            $('#change').change(function () {
+                if($(this).val() != ''){
+                    var mapel_id = $(this).val();
+                    var _token = $('input[name="_token"]').val();
+                    $.ajax({
+                        url:"/getSubMapelList",
+                        method:"POST",
+                        data:{mapel_id:mapel_id, _token : _token},
+                        success:function (result) {
+                            // console.log(result);
+                            $('#sub_mapel').html(result);
+                        }
+                    });
+                }
+            });
+        });
+    </script>
 @endsection

@@ -166,7 +166,7 @@
                 <h6 class="navbar-heading text-muted">Data Pemesanan</h6>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="/menu/mapelList">
+                        <a class="nav-link" href="/menu/addPesananForm">
                             <i class="ni ni-bullet-list-67 text-blue"></i> Buat Pemesanan
                         </a>
                     </li>
@@ -206,7 +206,7 @@
                 </ul>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="/menu/mapelList">
+                        <a class="nav-link" href="/menu/riwayatList">
                             <i class="ni ni-bullet-list-67 text-blue"></i> Riwayat Kursus
                         </a>
                     </li>

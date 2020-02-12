@@ -21,11 +21,35 @@ use UxWeb\SweetAlert\SweetAlert;
 class PesanController extends Controller
 {
 
-   public function formPemesananById($mapel_id)
+    public function getMapelDynamic(Request $request)
+    {
+        $id = $request->mapel_id;
+        $data = SubMapel::where("mapel_id",$id)->where("active","Y")->get();
+        $output ="";
+        foreach ($data as $row){
+            $output .= "<input type='checkbox' name='sub_mapel_list[]' value='$row->nama_sub_mapel'>$row->nama_sub_mapel<br>";;
+        }
+        echo $output;
+    }
+
+    public function formPemesananById($mapel_id)
    {
        $mapel = Mapel::find($mapel_id);
         $subMapelList = SubMapel::where('mapel_id', $mapel_id)->where('active', 'Y')->get();
         return view('formPemesananById', ['mapel' => $mapel, "subMapelList" => $subMapelList]);
+    }
+
+    public function addPesananForm()
+    {
+        $user_id = Auth::user()->user_id;
+        $cek = DB::table("t_transaksi")->where("user_id",$user_id)->first();
+        if($cek){
+            SweetAlert::info("Pemesanan Telah Dilakukan \n Tunggu Transaksi Terakhir Selesai !","Maaf!");
+            return redirect()->back();
+        }else{
+            $mapelList = Mapel::where('active', 'Y')->get();
+            return view('formPemesanan', ['mapelList' => $mapelList]);
+        }
     }
 
     public function cancelPesananUser($transaksi_id)
@@ -161,6 +185,7 @@ class PesanController extends Controller
     public function pesananSayaDetail()
     {
         $user = User::find(Auth::user()->user_id);
+        $user_id = $user->user_id;
         $id = "";
         $level =$user->level;
         if($level == "student"){
@@ -168,7 +193,8 @@ class PesanController extends Controller
         }elseif ($level == "teacher"){
             $id="teacher_id";
         }
-        $cek = DB::table("t_transaksi")->where("user_id",$id)->orWhere("teacher_id",$id)->first();
+        $cek = DB::table("t_transaksi")->where("user_id",$user_id)->orWhere("teacher_id",$user_id)->first();
+
         if($cek){
             $pesanan = DB::table('t_transaksi')
                 ->leftJoin('t_user', 't_transaksi.teacher_id', '=', 't_transaksi.user_id')
@@ -184,8 +210,14 @@ class PesanController extends Controller
 
             return view('pesananSayaDetail', ["pesanan" => $pesanan]);
         }else{
-            SweetAlert::info("Tidak ada Aktivitas !","Maaf");
-            return redirect("/menu/mapelList");
+            if($level == "student"){
+                SweetAlert::info("Tidak ada Aktivitas \n Lakukan Pemesanan \n Telebih Dahulu!","Maaf");
+                return redirect("/menu/addPesananForm");
+            }elseif ($level == "teacher"){
+                SweetAlert::info("Tidak ada Aktivitas \n Terima Pemesanan \n Telebih Dahulu!","Maaf");
+                return redirect("/menu/getPesananList");
+            }
+
         }
 
     }
@@ -206,7 +238,15 @@ class PesanController extends Controller
 
     public function getPesananList()
     {
-        return view('getPesananList');
+        $transaksi = Transaksi::where("teacher_id",Auth::user()->user_id)->first();
+
+        if($transaksi){
+            SweetAlert::info("Pemesanan Telah Dilakukan \n Tunggu Transaksi Terakhir Selesai !","Maaf!");
+            return redirect()->back();
+        }else{
+            return view('getPesananList');
+        }
+
     }
 
     public function riwayatList()
@@ -219,7 +259,7 @@ class PesanController extends Controller
         if($level == "student"){
             $query="INNER JOIN t_user B ON A.teacher_id = B.user_id WHERE A.user_id= '$id'";
         }elseif ($level == "teacher"){
-            $query="INNER JOIN t_user B ON A.user_id = B.user_id WHERE A.user_id= '$id'";
+            $query="INNER JOIN t_user B ON A.user_id = B.user_id WHERE A.teacher_id= '$id'";
         }
         $riwayatList = DB::select("SELECT A.*,B.fullname FROM t_riwayat_transaksi A
                                             $query");

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Kategori;
 use App\Mapel;
 use App\SubMapel;
+use App\Transaksi;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -61,7 +62,7 @@ class MapelController extends Controller
         $mapel=DB::select("SELECT A.nama_mapel,A.mapel_id,A.kode_mapel,A.active,B.nama_kategori FROM t_mapel A 
                                   INNER JOIN t_kategori B ON A.kategori_id = B.kategori_id");
         $subMapelList=SubMapel::where('mapel_id',$mapel_id)->where('active','Y')->get();
-
-        return view('mapelDetail',["mapel" => $mapel[0], "subMapelList" => $subMapelList]);
+        $transaksi = Transaksi::where("user_id",Auth::user()->user_id)->get();
+        return view('mapelDetail',["mapel" => $mapel[0], "subMapelList" => $subMapelList,"transaksi"=>$transaksi]);
     }
 }
