@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Aplikasi Inventaris untuk Project PAS">
     <meta name="author" content="Ephraim Jehudah Pelealu">
-    <title>Inventaris - @yield('page-title')</title>
+    <title>Lets Teach - @yield('page-title')</title>
     <!-- Favicon -->
     <link href="/asset_template/img/brand/favicon.png" rel="icon" type="image/png">
     <!-- Fonts -->
@@ -16,8 +16,8 @@
     <link href="/asset_template/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
     <!-- Argon CSS -->
     <link type="text/css" href="/asset_template/css/argon.css?v=1.0.0" rel="stylesheet">
-
-    @yield('script')
+    <link href="/asset/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="/asset/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -34,17 +34,7 @@
         </a>
         <!-- User -->
         <ul class="nav align-items-center d-md-none">
-            <li class="nav-item dropdown">
-                <a class="nav-link nav-link-icon" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="ni ni-bell-55"></i>
-                </a>
-                <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right" aria-labelledby="navbar-default_dropdown_1">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-            </li>
+
             <li class="nav-item dropdown">
                 <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div class="media align-items-center">
@@ -57,24 +47,12 @@
                     <div class=" dropdown-header noti-title">
                         <h6 class="text-overflow m-0">Welcome!</h6>
                     </div>
-                    <a href="./examples/profile.html" class="dropdown-item">
+                    <a href="/profile" class="dropdown-item">
                         <i class="ni ni-single-02"></i>
                         <span>My profile</span>
                     </a>
-                    <a href="./examples/profile.html" class="dropdown-item">
-                        <i class="ni ni-settings-gear-65"></i>
-                        <span>Settings</span>
-                    </a>
-                    <a href="./examples/profile.html" class="dropdown-item">
-                        <i class="ni ni-calendar-grid-58"></i>
-                        <span>Activity</span>
-                    </a>
-                    <a href="./examples/profile.html" class="dropdown-item">
-                        <i class="ni ni-support-16"></i>
-                        <span>Support</span>
-                    </a>
                     <div class="dropdown-divider"></div>
-                    <a href="#!" class="dropdown-item">
+                    <a href="/proses_logout" class="dropdown-item">
                         <i class="ni ni-user-run"></i>
                         <span>Logout</span>
                     </a>
@@ -148,6 +126,14 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/menu/subMapelList">
                             <i class="ni ni-archive-2 text-blue"></i> Daftar Sub Mata Pelajaran
+<<<<<<< HEAD
+=======
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/menu/addSubMapelForm">
+                            <i class="ni ni-archive-2 text-blue"></i> Tambah Sub Mata Pelajaran
+>>>>>>> cdaff63b75150e6bad07ea6de8b444b196b1dd9a
                         </a>
                     </li>
                 </ul>
@@ -156,13 +142,79 @@
                 <h6 class="navbar-heading text-muted">Data Biaya</h6>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="/menu/barangList">
-                            <i class="ni ni-archive-2 text-blue"></i> Daftar Barang
+                        <a class="nav-link" href="/menu/biayaList">
+                            <i class="ni ni-archive-2 text-blue"></i> Daftar Biaya
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/menu/addBiayaForm">
+                            <i class="ni ni-archive-2 text-blue"></i    > Tambah Biaya
                         </a>
                     </li>
                 </ul>
             @endif
-
+            @if(Auth::guard('student')->check())
+                <hr class="my-3">
+                <!-- Heading -->
+                <h6 class="navbar-heading text-muted">Data Mapel</h6>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/menu/mapelList">
+                            <i class="ni ni-bullet-list-67 text-blue"></i> Daftar Mapel
+                        </a>
+                    </li>
+                </ul>
+                <hr class="my-3">
+                <!-- Heading -->
+                <h6 class="navbar-heading text-muted">Data Pemesanan</h6>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/menu/mapelList">
+                            <i class="ni ni-bullet-list-67 text-blue"></i> Buat Pemesanan
+                        </a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/menu/pesananSaya">
+                            <i class="ni ni-bullet-list-67 text-blue"></i> Pemesanan Saya
+                        </a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/menu/mapelList">
+                            <i class="ni ni-bullet-list-67 text-blue"></i> Riwayat Pemesanan
+                        </a>
+                    </li>
+                </ul>
+            @endif
+            @if(Auth::guard('teacher')->check())
+                <hr class="my-3">
+                <!-- Heading -->
+                <h6 class="navbar-heading text-muted">Data Pemesanan</h6>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/menu/getPesananList">
+                            <i class="ni ni-bullet-list-67 text-blue"></i> Terima Kursus
+                        </a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/menu/pesananSaya">
+                            <i class="ni ni-bullet-list-67 text-blue"></i> Kursus Saya
+                        </a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/menu/mapelList">
+                            <i class="ni ni-bullet-list-67 text-blue"></i> Riwayat Kursus
+                        </a>
+                    </li>
+                </ul>
+            @endif
         </div>
     </div>
 
@@ -191,6 +243,10 @@
                         <div class=" dropdown-header noti-title">
                             <h6 class="text-overflow m-0">Welcome!</h6>
                         </div>
+                        <a href="/profile" class="dropdown-item">
+                            <i class="ni ni-single-02"></i>
+                            <span>My profile</span>
+                        </a>
                         <div class="dropdown-divider"></div>
                         <a href="/proses_logout" class="dropdown-item">
                             <i class="ni ni-user-run"></i>
@@ -219,14 +275,20 @@
     </div>
 </div>
 <!-- Argon Scripts -->
+
 <!-- Core -->
+<script src="/asset_sweet_alert/sweetalert.min.js"></script>
+
+@include('sweet::alert')
 <script src="/asset_template/vendor/jquery/dist/jquery.min.js"></script>
+@yield('script-js')
 <script src="/asset_template/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Optional JS -->
 <script src="/asset_template/vendor/chart.js/dist/Chart.min.js"></script>
 <script src="/asset_template/vendor/chart.js/dist/Chart.extension.js"></script>
 <!-- Argon JS -->
 <script src="/asset_template/js/argon.js?v=1.0.0"></script>
+
 </body>
 
 </html>

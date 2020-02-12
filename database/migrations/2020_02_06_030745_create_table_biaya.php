@@ -15,7 +15,7 @@ class CreateTableBiaya extends Migration
     {
         Schema::create('t_biaya', function (Blueprint $table) {
             $table->bigIncrements('biaya_id');
-            $table->integer('mapel_id');
+            $table->integer('mapel_id')->unique();
             $table->bigInteger('biaya');
             $table->string('active',1);
         });

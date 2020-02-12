@@ -41,7 +41,7 @@
                         <div class="col-xl-2 col-lg-2">
                             <div class="logo-img">
                                 <a href="index.html">
-                                    <img src="/asset/img/logo.png" alt="">
+                                    <img src="/asset/img/Capture.jpg" alt="">
                                 </a>
                             </div>
                         </div>
@@ -88,7 +88,7 @@
                         <div class="footer_widget">
                             <div class="footer_logo">
                                 <a href="#">
-                                    <img src="img/logo.png" alt="">
+                                    <img src="/asset/img/logo.png" alt="">
                                 </a>
                             </div>
                             <p>
@@ -174,7 +174,7 @@
                     <div class="col-xl-12">
                         <p class="copy_right text-center">
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> Alaska DE-VO
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         </p>
                     </div>
@@ -215,7 +215,7 @@
     <!-- form itself end -->
 
     <!-- form itself end-->
-    <form id="test-form2" class="white-popup-block mfp-hide">
+    <form id="test-form2" class="white-popup-block mfp-hide" action="/proses_registrasi" method="post">
         <div class="popup_box ">
             <div class="popup_inner">
                 <div class="logo text-center">
@@ -224,22 +224,53 @@
                     </a>
                 </div>
                 <h3>Registration</h3>
-                <form action="#">
+                    {{csrf_field()}}
                     <div class="row">
                         <div class="col-xl-12 col-md-12">
-                            <input type="email" placeholder="Enter email">
+                            <input type="text" placeholder="Enter fullname" autocomplete="off" required name="fullname">
                         </div>
                         <div class="col-xl-12 col-md-12">
-                            <input type="password" placeholder="Password">
+                            <input type="email" placeholder="Enter email" autocomplete="off" required name="email">
                         </div>
                         <div class="col-xl-12 col-md-12">
-                            <input type="Password" placeholder="Confirm password">
+                            <input type="text" placeholder="Enter username" autocomplete="off" required name="username">
+                        </div>
+                        <div class="col-xl-12 col-md-12">
+                            <input type="password" placeholder="Password" required name="password">
+                        </div>
+                        <div class="col-xl-12 col-md-12">
+                            <input type="Password" placeholder="Confirm password" required name="confirm_password">
+                        </div>
+                        <div class="col-xl-12 col-md-12">
+                            <select name="province_id" style="margin-bottom: 20px;" required
+                                    class="form-control form-control-alternative dynamic"
+                                    id="province" data-dependent="regency">
+                                <option value="">--Pilih Provinsi--</option>
+                                @foreach($provinceList as $province)
+                                    <option value="{{$province->id}}">{{$province->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col-xl-12 col-md-12">
+                            <select name="regency_id" style="margin-bottom: 20px;" required
+                                    class="form-control form-control-alternative dynamic"
+                                    id="regency" data-dependent="district">
+                                <option value="">--Pilih Kabupaten/Kota--</option>
+
+                            </select>
+                        </div>
+                        <div class="col-xl-12 col-md-12">
+                            <select name="district_id" style="margin-bottom: 20px;" required
+                                    class="form-control form-control-alternative"
+                                    id="district">
+                                <option value="">--Pilih Kecamatan--</option>
+
+                            </select>
                         </div>
                         <div class="col-xl-12">
                             <button type="submit" class="boxed_btn_orange">Sign Up</button>
                         </div>
                     </div>
-                </form>
             </div>
         </div>
     </form>
@@ -263,6 +294,7 @@
     <script src="/asset/js/jquery.magnific-popup.min.js"></script>
     <script src="/asset/js/plugins.js"></script>
     <script src="/asset/js/gijgo.min.js"></script>
+{{--    <script src="/asset/js/vendor/jquery-1.12.4.min.js"></script>--}}
     <script src="/asset_sweet_alert/sweetalert.min.js"></script>
 
     @include('sweet::alert')
@@ -273,6 +305,28 @@
     <script src="/asset/js/jquery.validate.min.js"></script>
     <script src="/asset/js/mail-script.js"></script>
     <script src="/asset/js/main.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('.dynamic').change(function () {
+                if($(this).val() != ''){
+                    var select = $(this).attr("id");
+                    var value = $(this).val();
+                    var dependent = $(this).data('dependent');
+                    var _token = $('input[name="_token"]').val();
+                    $.ajax({
+                            url:"/dynamicDependent",
+                            method:"POST",
+                            data:{select:select, value:value, _token : _token, dependent:dependent},
+                            success:function (result) {
+                                // console.log(result);
+                                $('#'+dependent).html(result);
+                            }
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

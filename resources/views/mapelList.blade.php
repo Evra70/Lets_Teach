@@ -33,7 +33,7 @@
                             <th scope="col">Kode Mata Pelajaran</th>
                             <th scope="col">Nama Mata Pelajaran</th>
                             <th scope="col">Active</th>
-                            <th scope="col">Aksi</th>
+                            <th scope="col"></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -44,19 +44,24 @@
                                 <td>{{$mapel->kode_mapel}}</td>
                                 <td>{{$mapel->nama_mapel}}</td>
                                 <td>{{$mapel->active}}</td>
-                                @if(Auth::guard('administrator')->check())
                                     <td class="text-right">
                                         <div class="dropdown">
                                             <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 <i class="fas fa-ellipsis-v"></i>
                                             </a>
+                                            @if(Auth::guard('administrator')->check())
                                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
                                                 <a class="dropdown-item" href="/mapel/{{$mapel->mapel_id}}/delete">Delete</a>
 {{--                                                <a class="dropdown-item" href="/menu/editBarangForm/{{$barang->barang_id}}">Edit</a>--}}
                                             </div>
+                                            @endif
+                                            @if(Auth::guard('student')->check())
+                                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                                    <a class="dropdown-item" href="/mapel/{{$mapel->mapel_id}}/detail">Lihat Detail</a>
+                                                </div>
+                                            @endif
                                         </div>
                                     </td>
-                                @endif
                             </tr>
                     @endforeach
                         </tbody>

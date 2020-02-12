@@ -15,9 +15,9 @@ class CreateTMapel extends Migration
     {
         Schema::create('t_mapel', function (Blueprint $table) {
             $table->bigIncrements('mapel_id');
-            $table->string('kode_mapel',10);
+            $table->string('kode_mapel',15)->unique();
             $table->integer('kategori_id');
-            $table->string('nama_mapel',10);
+            $table->string('nama_mapel',30);
             $table->string('active',1);
             //$table->timestamps();
         });

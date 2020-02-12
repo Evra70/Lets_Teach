@@ -1,8 +1,8 @@
 @extends('master.master')
 
-@section('page-title', 'Daftar Kategori')
+@section('page-title', 'Form Tambah Kategori')
 
-@section('title','Daftar Kategori')
+@section('title','Tambah Kategori')
 
 @section('script')
 @endsection
@@ -10,57 +10,59 @@
 @section('header-content')
     <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
         <div class="container-fluid">
-            <div class="header-body" style="margin-bottom: -60px;">
-                <!-- Card stats -->
+            <div class="header-body">
             </div>
         </div>
     </div>
 @endsection
 
-
 @section('body-content')
-    <div class="row mt-5">
+    <div class="row">
         <div class="col">
             <div class="card shadow">
-                <div class="card-header border-0">
-                    <h3 class="mb-0">Table Kategori</h3>
+                <div class="card-header bg-transparent">
+                    <h3 class="mb-0 text-center">FORM TAMBAH KATEGORI</h3>
                 </div>
-                <div class="table-responsive">
-                    <table class="table align-items-center table-flush">
-                        <thead class="thead-light">
-                        <tr>
-                            <th scope="col">No</th>
-                            <th scope="col">Kode Kategori</th>
-                            <th scope="col">Nama Kategori</th>
-                            <th scope="col">Active</th>
-                            <th scope="col"></th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @php $no=1; @endphp
-                        @foreach($kategoriList as $kategori)
-                            <tr>
-                                <th scope="row">{{$no++}}</th>
-                                <td>{{$kategori->kode_kategori}}</td>
-                                <td>{{$kategori->nama_kategori}}</td>
-                                <td>{{$kategori->active}}</td>
-                                @if(Auth::guard('administrator')->check())
-                                    <td class="text-right">
-                                        <div class="dropdown">
-                                            <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <i class="fas fa-ellipsis-v"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                <a class="dropdown-item" href="/kategori/{{$kategori->kategori_id}}/delete">Delete</a>
-                                                {{--                                                <a class="dropdown-item" href="/menu/editBarangForm/{{$barang->barang_id}}">Edit</a>--}}
-                                            </div>
-                                        </div>
-                                    </td>
-                                @endif
-                            </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
+                <div class="card-body">
+                    <form action="/proses/addKategoriProcess" method="post">
+                        {{csrf_field()}}
+                        <div class="pl-lg-4">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group {{ $errors->has('kode_kategori') ? ' has-error' : '' }}">
+                                        <label class="form-control-label" for="input-email">Kode Kategori</label>
+                                        <input type="text" id="input-fullname" autocomplete="off"
+                                               onkeypress="this.value = this.value + event.key.toUpperCase(); return false;"
+                                               class="form-control form-control-alternative" placeholder="Kode Kategori..."  name="kode_kategori">
+                                    </div>
+                                    @if ($errors->has('kode_kategori'))
+                                        <span class="help-block" style="color:red;margin-bottom: 5px;margin-top: -10px;">
+                                        <strong>{{ $errors->first('kode_kategori') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group {{ $errors->has('nama_kategori') ? ' has-error' : '' }}">
+                                        <label class="form-control-label" for="input-username">Nama Kategori</label>
+                                        <input type="text" id="input-username" autocomplete="off" class="form-control form-control-alternative" placeholder="Nama Kategori..." name="nama_kategori">
+                                    </div>
+                                    @if ($errors->has('nama_kategori'))
+                                        <span class="help-block" style="color:red;margin-bottom: 5px;margin-top: -10px;">
+                                        <strong>{{ $errors->first('nama_kategori') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+                            <hr class="my-4" />
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <input type="submit" value="Tambah" class="btn btn-info">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

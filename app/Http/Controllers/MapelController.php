@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Kategori;
 use App\Mapel;
+<<<<<<< HEAD
+=======
+use App\SubMapel;
+use App\User;
+>>>>>>> cdaff63b75150e6bad07ea6de8b444b196b1dd9a
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -29,7 +34,7 @@ class MapelController extends Controller
     {
 
         $this->validate($request,[
-            'kode_mapel' => 'required|min:3',
+            'kode_mapel' => 'required|min:2',
             'kategori_id' => 'required',
             'nama_mapel' => 'required|min:3'
         ]);
@@ -55,4 +60,12 @@ class MapelController extends Controller
         return(redirect('/menu/mapelList'));
     }
 
+    public function mapelStudentDetail($mapel_id)
+    {
+        $mapel=DB::select("SELECT A.nama_mapel,A.mapel_id,A.kode_mapel,A.active,B.nama_kategori FROM t_mapel A 
+                                  INNER JOIN t_kategori B ON A.kategori_id = B.kategori_id");
+        $subMapelList=SubMapel::where('mapel_id',$mapel_id)->where('active','Y')->get();
+
+        return view('mapelDetail',["mapel" => $mapel[0], "subMapelList" => $subMapelList]);
+    }
 }
