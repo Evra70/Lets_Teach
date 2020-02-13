@@ -33,7 +33,7 @@
                             <th scope="col">Kode Sub Mata Pelajaran</th>
                             <th scope="col">Nama Sub Mata Pelajaran</th>
                             <th scope="col">Active</th>
-                            <th scope="col"></th>
+                            <th scope="col">Aksi</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -52,7 +52,7 @@
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
                                                 <a class="dropdown-item" href="/subMapel/{{$subMapel->sub_mapel_id}}/delete">Delete</a>
-                                                {{--                                                <a class="dropdown-item" href="/menu/editBarangForm/{{$barang->barang_id}}">Edit</a>--}}
+                                                <a class="dropdown-item" href="/menu/editSubMapelForm/{{$subMapel->sub_mapel_id}}">Edit</a>
                                             </div>
                                         </div>
                                     </td>

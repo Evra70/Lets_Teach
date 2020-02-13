@@ -31,10 +31,16 @@ Route::get('/kursus', 'MenuController@kursus')->middleware('guest');
 Route::get('/kontak', 'MenuController@kontak')->middleware('guest');
 Route::get('/tentang_kami', 'MenuController@tentangKami')->middleware('guest');
 
+
+//mapel
+
 // mapel
+
 Route::get('/menu/addMapelForm','MapelController@addMapelForm')->middleware('auth:administrator');
 Route::post('/menu/addMapelProcess','MapelController@addMapelProcess')->middleware('auth:administrator');
 Route::get('/mapel/{mapel_id}/delete','MapelController@deleteMapel')->middleware('auth:administrator');
+Route::get('/menu/editMapelForm/{mapel_id}','MapelController@editMapelForm')->middleware('auth:administrator');
+Route::post('/menu/editMapelProcess','MapelController@editMapelProcess')->middleware('auth:administrator');
 Route::get('/menu/mapelList','MapelController@mapelList')->middleware('auth:administrator,student');
 Route::get('/mapel/{mapel_id}/detail','MapelController@mapelStudentDetail')->middleware('auth:student');
 
@@ -43,12 +49,16 @@ Route::get('/menu/kategoriList','KategoriController@kategoriList')->middleware('
 Route::get('/menu/addKategoriForm','KategoriController@addKategoriForm')->middleware('auth:administrator');
 Route::post('/proses/addKategoriProcess','KategoriController@addKategoriProcess')->middleware('auth:administrator');
 Route::get('/kategori/{kategori_id}/delete','KategoriController@deleteKategori')->middleware('auth:administrator');
+Route::get('/menu/editKategoriForm/{id}','KategoriController@editKategoriForm')->middleware('auth:administrator');
+Route::post('/menu/editKategoriProcess','KategoriController@editKategoriProcess')->middleware('auth:administrator');
 
 //sub mapel
 Route::get('/menu/subMapelList','SubMapelController@subMapelList')->middleware('auth:administrator');
 Route::get('/menu/addSubMapelForm','SubMapelController@addSubMapelForm')->middleware('auth:administrator');
 Route::post('/menu/addSubMapleProcess','SubMapelController@addSubMapleProcess')->middleware('auth:administrator');
-//Route::get('/subMapel/{sub_mapel_id}/delete','SubMapelController@delete');
+Route::get('/subMapel/{sub_mapel_id}/delete','SubMapelController@deleteSubMapel');
+Route::get('/menu/editSubMapelForm/{id}','SubMapelController@editSubMapelForm')->middleware('auth:administrator');
+Route::post('/menu/editSubMapelProcess','SubMapelController@editSubMapelProcess')->middleware('auth:administrator');
 
 //pemesanan
 Route::get('/pesan/{mapel_id}/form','PesanController@formPemesananById')->middleware('auth:student');

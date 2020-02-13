@@ -4,8 +4,23 @@
 
 @section('content')
         <!-- bradcam_area_start -->
-        <div class="bradcam_area breadcam_bg overlay2">
-            <h3><u><i>Layanan Kursus</i></u></h3>
+        <div class="slider_area ">
+            <div class="single_slider d-flex align-items-center justify-content-center slider_bg_1">
+                <div class="container">
+                    <div class="row align-items-center justify-content-center">
+                        <div class="col-xl-6 col-md-6">
+                            <div class="illastrator_png">
+                                <img src="/asset/img/banner/edu_ilastration.png" alt="">
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-md-6">
+                            <div class="slider_info">
+                                <h3>KURSUS</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <!-- bradcam_area_end -->
 
@@ -20,7 +35,7 @@
                     </div>
                 </div>
             </div>
-            
+
 
         </div>
         <div class="all_courses">
@@ -180,7 +195,7 @@
                                     </div>
                                 </div>
                     </div>
-                    
+
                     </div>
                 </div>
             </div>

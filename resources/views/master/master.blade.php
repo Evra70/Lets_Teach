@@ -160,19 +160,19 @@
                 </ul>
                 <hr class="my-3">
                 <!-- Heading -->
-                <h6 class="navbar-heading text-muted">Data Biaya</h6>
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/menu/biayaList">
-                            <i class="ni ni-archive-2 text-blue"></i> Daftar Biaya
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/menu/addBiayaForm">
-                            <i class="ni ni-archive-2 text-blue"></i    > Tambah Biaya
-                        </a>
-                    </li>
-                </ul>
+{{--                <h6 class="navbar-heading text-muted">Data Biaya</h6>--}}
+{{--                <ul class="navbar-nav">--}}
+{{--                    <li class="nav-item">--}}
+{{--                        <a class="nav-link" href="/menu/biayaList">--}}
+{{--                            <i class="ni ni-archive-2 text-blue"></i> Daftar Biaya--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
+{{--                    <li class="nav-item">--}}
+{{--                        <a class="nav-link" href="/menu/addBiayaForm">--}}
+{{--                            <i class="ni ni-archive-2 text-blue"></i    > Tambah Biaya--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
+{{--                </ul>--}}
             @endif
             @if(Auth::guard('student')->check())
                 <hr class="my-3">
